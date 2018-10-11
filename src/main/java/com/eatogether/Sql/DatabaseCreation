@@ -1,0 +1,7 @@
+create table Categories (
+   id INT NOT NULL ,
+   nameCategory VARCHAR(50) NOT NULL,
+   descriptionCategory VARCHAR(255) NOT NULL,
+   PRIMARY KEY (id)
+);
+
