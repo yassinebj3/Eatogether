@@ -1,7 +1,6 @@
 package com.eatogether.Consumer.Implemenation;
 import com.eatogether.Consumer.IUsers;
-import com.eatogether.Repository.RepositoryBean.UserBean;
-import com.eatogether.Repository.UtilisateurPersistance;
+import com.eatogether.Repository.RepositoryBean.UtilisateurBean;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -14,18 +13,18 @@ public class UsersImplementation implements IUsers {
 
     EntityManager entityManager = EntityManagerfactory.createEntityManager();
 
-    private String USER_DETAILS="Select u from UtilisateurPersistance u where u.adressemail =:newmail";
+    private String USER_DETAILS="Select u from UtilisateurBean u where u.adressemail =:newmail";
 
 
     @Override
-    public void persistuser(UtilisateurPersistance user) {
+    public void persistuser(UtilisateurBean user) {
         entityManager.getTransaction().begin();
         entityManager.persist(user);
         entityManager.getTransaction().commit();
     }
 
     @Override
-    public void deleteUser(UtilisateurPersistance user) {
+    public void deleteUser(UtilisateurBean user) {
 
         entityManager.getTransaction().begin();
         entityManager.remove(user);
@@ -34,15 +33,15 @@ public class UsersImplementation implements IUsers {
     }
 
     @Override
-    public UtilisateurPersistance getUserDetails(String mail) {
+    public UtilisateurBean getUserDetails(String mail) {
         Query details =entityManager.createQuery(USER_DETAILS);
         details.setParameter("newmail",mail);
 
-        return (UtilisateurPersistance) details.getSingleResult();
+        return (UtilisateurBean) details.getSingleResult();
     }
 
     @Override
-    public UtilisateurPersistance updateUserInformations(UtilisateurPersistance user) {
+    public UtilisateurBean updateUserInformations(UtilisateurBean user) {
         return entityManager.merge(user);
 
     }

@@ -1,26 +1,48 @@
 package com.eatogether.Repository.RepositoryBean;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Categories")
 public class CategoriesBean {
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(generator = "incrementator")
+    @GenericGenerator(name = "incrementator",strategy = "increment")
+    private int idcategorie;
 
-    private int idCategorie;
-    private String nameCategorie;
+    @Column(name = "nameCategory")
+    private String nomCategorie;
+
+    @Column(name = "descriptionCategory")
     private String descriptionCategorie;
 
-    public int getIdCategorie() {
-        return idCategorie;
+    public CategoriesBean(int idcategorie, String nomCategorie, String descriptionCategorie) {
+        this.idcategorie = idcategorie;
+        this.nomCategorie = nomCategorie;
+        this.descriptionCategorie = descriptionCategorie;
     }
 
-    public void setIdCategorie(int idCategorie) {
-        this.idCategorie = idCategorie;
+    public CategoriesBean() {
     }
 
-    public String getNameCategorie() {
-        return nameCategorie;
+    public int getIdcategorie() {
+        return idcategorie;
     }
 
-    public void setNameCategorie(String nameCategorie) {
-        this.nameCategorie = nameCategorie;
+    public void setIdcategorie(int idcategorie) {
+        this.idcategorie = idcategorie;
+    }
+
+    public String getNomCategorie() {
+        return nomCategorie;
+    }
+
+    public void setNomCategorie(String nomCategorie) {
+        this.nomCategorie = nomCategorie;
     }
 
     public String getDescriptionCategorie() {
@@ -29,14 +51,5 @@ public class CategoriesBean {
 
     public void setDescriptionCategorie(String descriptionCategorie) {
         this.descriptionCategorie = descriptionCategorie;
-    }
-
-    public CategoriesBean(int idCategorie, String nameCategorie, String descriptionCategorie) {
-        this.idCategorie = idCategorie;
-        this.nameCategorie = nameCategorie;
-        this.descriptionCategorie = descriptionCategorie;
-    }
-
-    public CategoriesBean() {
     }
 }

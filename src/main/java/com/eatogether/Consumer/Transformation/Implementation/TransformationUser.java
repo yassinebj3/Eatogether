@@ -1,16 +1,16 @@
 package com.eatogether.Consumer.Transformation.Implementation;
 
-import com.eatogether.Consumer.Transformation.ITransformation;
-import com.eatogether.Repository.RepositoryBean.UserBean;
-import com.eatogether.Repository.UtilisateurPersistance;
+import com.eatogether.Consumer.Transformation.IUserTransformation;
+import com.eatogether.Repository.User;
+import com.eatogether.Repository.RepositoryBean.UtilisateurBean;
 
 import java.sql.Timestamp;
 
-public class TransformationUser implements ITransformation {
+public class TransformationUser implements IUserTransformation {
 
-    public UtilisateurPersistance fromUserBeanToUser(UserBean user)
+    public UtilisateurBean fromUserToUserBean(User user)
     {
-        UtilisateurPersistance userpersistance= new UtilisateurPersistance();
+        UtilisateurBean userpersistance= new UtilisateurBean();
         userpersistance.setNom(user.getNom());
         userpersistance.setPrenom(user.getPrenom());
         userpersistance.setPseudo(user.getPseudo());
@@ -22,8 +22,8 @@ public class TransformationUser implements ITransformation {
     }
 
     @Override
-    public UserBean fromUserToUserBean(UtilisateurPersistance user) {
-        UserBean userBean= new UserBean();
+    public User fromUserBeanToUser(UtilisateurBean user) {
+        User userBean= new User();
         userBean.setNom(user.getNom());
         userBean.setPrenom(user.getPrenom());
         userBean.setPseudo(user.getPseudo());
