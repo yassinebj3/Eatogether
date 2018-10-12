@@ -19,6 +19,7 @@ public class Recherche extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		FoursquareAPIsearch api = new FoursquareAPIsearch();
 		String id = request.getParameter("id");
 		System.out.println("id"+id);
@@ -40,6 +41,7 @@ public class Recherche extends HttpServlet {
 
 	
 
+
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
@@ -50,6 +52,7 @@ public class Recherche extends HttpServlet {
 		String rayon = request.getParameter("rayon");
 		FoursquareAPIsearch api = new FoursquareAPIsearch();
 		Venuedetails[] result = api.getvenues(place, rayon, query,limit, "");
+
 		request.setAttribute("venue", result);
 		String json = api.infovenuetojson(result[0].getId());
 		System.out.println(json);

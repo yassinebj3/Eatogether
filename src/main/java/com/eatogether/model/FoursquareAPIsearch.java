@@ -11,8 +11,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.restassured.response.Response;
 
-
-
 public class FoursquareAPIsearch {
 
 
@@ -101,6 +99,7 @@ public class FoursquareAPIsearch {
 		Response resp = given()
 				.params(nearParameter, near, radiusParameter, radius, queryParameter, query, limitParameter, limit,
 						categoryidParameter, categoryid)
+
 				.params("client_id", "JKGZ204YBKPLRSNJY1WTMQJ1OAZDRR13IMEAYKE2UHJDVG1X")
 				.params("client_secret", "MT5Z3ZFMWOBDPH03BGJBCO3LF1X5MIQT05MXNVXKP3SJM5A3").params("v", "20180922")
 				.when().get("https://api.foursquare.com/v2/venues/search");
@@ -194,6 +193,7 @@ public class FoursquareAPIsearch {
 		String info ; 
 		ObjectMapper objectMapper = new ObjectMapper();
 		info = objectMapper.writeValueAsString(infovenue.getPhotos());
+
 		ObjectMapper mapper = new ObjectMapper();
 		PhotoTT photo = mapper.readValue(info, PhotoTT.class);
 		
@@ -268,6 +268,7 @@ public class FoursquareAPIsearch {
 
 	public static InformationTT getvenuesdetails(String id) throws JsonParseException, JsonMappingException, IOException {
 
+
 		Response resp = given().params("client_id", "JKGZ204YBKPLRSNJY1WTMQJ1OAZDRR13IMEAYKE2UHJDVG1X")
 				.params("client_secret", "MT5Z3ZFMWOBDPH03BGJBCO3LF1X5MIQT05MXNVXKP3SJM5A3").params("v", "20180922")
 				.when().get("https://api.foursquare.com/v2/venues/" + id);
@@ -277,7 +278,8 @@ public class FoursquareAPIsearch {
 
 		return infovenue ;
 	}
-	
+
+
 	public String infovenuetojson(String id) throws JsonParseException, JsonMappingException, IOException {
 		InformationTT info = getvenuesdetails(id);
 		ObjectMapper mapper = new ObjectMapper();

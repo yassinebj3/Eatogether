@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +18,7 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-	
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -62,7 +63,7 @@
 					<div class="caption">
 						<h3><c:out value="${value.name}" /></h3>
 						<p>
-							
+
 							<label> Pays :</label>	<c:out value="${value.location.country }" /><br>
 							<c:forEach items="${value.categories}" var="categorie">
 							<label>Categorie :</label>		<c:out value="${categorie.name }" /><br>
@@ -76,8 +77,8 @@
 				</div>
 			</div>
 			</c:forEach>
-			
-			
+
+
 			<!-- Modal -->
 <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -127,10 +128,10 @@ $(document).ready(function(){
 	    	    	 $(".modal-body").append("<label> Rating :</label>"+data.rating+"<br>");
 	    	    	 $(".modal-body").append("<label> Menu :</label>"+data.menu.url+"<br>");
 	    	    	 $(".modal-body").append("<label> Hours :</label>"+data.hours.status+"<br>");
-	    	    	 
-	    	    	 
-	    	    	 
-	    	    	 
+
+
+
+
 	    	       },
 
 	    	       error : function(resultat, statut, erreur){
@@ -142,10 +143,10 @@ $(document).ready(function(){
 	    	       }
 
 	    });
-	   
+
 	});
 });
-</script> 
+</script>
 	<!--  	<div class="col-sm-6 col-md-4">
 				<div class="thumbnail">
 					<img src="..." alt="...">
@@ -213,11 +214,6 @@ $(document).ready(function(){
 				</div>
 			</div>
 		</div> -->
-	</div>
-
-
-
-
 
 </body>
 </html>
