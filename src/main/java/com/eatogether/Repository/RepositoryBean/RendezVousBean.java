@@ -1,39 +1,97 @@
 package com.eatogether.Repository.RepositoryBean;
 
+import com.eatogether.Repository.User;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
+@Table(name = "RendezVous")
 public class RendezVousBean {
 
-    private int idLiker;
-    private int idTargetLiker;
-    private int idRestraunt;
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(generator = "incrementator")
+    @GenericGenerator(name = "incrementator",strategy = "increment")
+    private int idRdv;
 
-    public int getIdLiker() {
-        return idLiker;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idLiker", referencedColumnName = "id")
+    private UtilisateurBean idsource;
+
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idTarget", referencedColumnName = "id")
+    private UtilisateurBean idvise;
+
+    @Column(name = "idRestaurant")
+    private int idrestaurant;
+
+    @Column(name = "dateTodate")
+    private Date daterdv;
+
+    @Column(name = "note")
+    private String note;
+
+
+
+
+    public int getIdRdv() {
+        return idRdv;
     }
 
-    public void setIdLiker(int idLiker) {
-        this.idLiker = idLiker;
+    public void setIdRdv(int idRdv) {
+        this.idRdv = idRdv;
     }
 
-    public int getIdTargetLiker() {
-        return idTargetLiker;
+    public UtilisateurBean getIdsource() {
+        return idsource;
     }
 
-    public void setIdTargetLiker(int idTargetLiker) {
-        this.idTargetLiker = idTargetLiker;
+    public void setIdsource(UtilisateurBean idsource) {
+        this.idsource = idsource;
     }
 
-    public int getIdRestraunt() {
-        return idRestraunt;
+    public UtilisateurBean getIdvise() {
+        return idvise;
     }
 
-    public void setIdRestraunt(int idRestraunt) {
-        this.idRestraunt = idRestraunt;
+    public void setIdvise(UtilisateurBean idvise) {
+        this.idvise = idvise;
     }
 
-    public RendezVousBean(int idLiker, int idTargetLiker, int idRestraunt) {
-        this.idLiker = idLiker;
-        this.idTargetLiker = idTargetLiker;
-        this.idRestraunt = idRestraunt;
+    public int getIdrestaurant() {
+        return idrestaurant;
+    }
+
+    public void setIdrestaurant(int idrestaurant) {
+        this.idrestaurant = idrestaurant;
+    }
+
+    public Date getDaterdv() {
+        return daterdv;
+    }
+
+    public void setDaterdv(Date daterdv) {
+        this.daterdv = daterdv;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public RendezVousBean(UtilisateurBean idsource, UtilisateurBean idvise, int idrestaurant, Date daterdv, String note) {
+        this.idsource = idsource;
+        this.idvise = idvise;
+        this.idrestaurant = idrestaurant;
+        this.daterdv = daterdv;
+        this.note = note;
     }
 
     public RendezVousBean() {

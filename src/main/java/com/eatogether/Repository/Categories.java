@@ -2,7 +2,6 @@ package com.eatogether.Repository;
 
 public class Categories {
 
-
     private int idCategorie;
     private String nameCategorie;
     private String descriptionCategorie;

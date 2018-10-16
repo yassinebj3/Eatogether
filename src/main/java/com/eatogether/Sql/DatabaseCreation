@@ -5,3 +5,13 @@ create table Categories (
    PRIMARY KEY (id)
 );
 
+create table RendezVous (
+   id INT NOT NULL ,
+   idLiker INT NOT NULL,
+   idTarget INT NOT NULL,
+   idRestaurant INT NOT NULL,
+   dateTodate DATE  NOT NULL,
+   note varchar(255),
+   PRIMARY KEY (id)
+);
+

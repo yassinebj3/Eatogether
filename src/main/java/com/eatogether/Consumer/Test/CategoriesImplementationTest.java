@@ -20,8 +20,8 @@ class CategoriesImplementationTest {
     public void testSavingCategories()
     {
         Categories cat = new Categories();
-        cat.setNameCategorie("Asiatique");
-        cat.setDescriptionCategorie("sushi,nems,..");
+        cat.setNameCategorie("indien");
+        cat.setDescriptionCategorie("nan,,..");
         ArrayList<Categories> list = new ArrayList<Categories>();
         list.add(cat);
         ArrayList<CategoriesBean> catlist = new ArrayList<CategoriesBean>();
