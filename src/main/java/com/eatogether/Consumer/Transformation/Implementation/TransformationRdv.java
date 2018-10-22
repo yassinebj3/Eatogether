@@ -8,6 +8,7 @@ import com.eatogether.Repository.RepositoryBean.RendezVousBean;
 import com.eatogether.Repository.RepositoryBean.UtilisateurBean;
 import com.eatogether.Repository.User;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 public class TransformationRdv implements IRendezVousTransformation {
@@ -18,11 +19,11 @@ public class TransformationRdv implements IRendezVousTransformation {
     public RendezVousBean fromRendezvousToRendezvousBean(RendezVous rdv) {
 
         RendezVousBean result = new RendezVousBean();
-        UtilisateurBean user1= new UtilisateurBean();
-        UtilisateurBean user2 = new UtilisateurBean();
+        if(rdv.getIdLiker()!=null)
         result.setIdsource(iUserTransformation.fromUserToUserBean(rdv.getIdLiker()));
+        if(rdv.getIdTargetLiker()!=null)
         result.setIdvise(iUserTransformation.fromUserToUserBean(rdv.getIdTargetLiker()));
-        result.setDaterdv(rdv.getDateRdv());
+        result.setDaterdv(new Timestamp(rdv.getDateRdv().getTime()));
         result.setIdrestaurant(rdv.getIdRestraunt());
         result.setNote(rdv.getNote());
 
@@ -33,8 +34,7 @@ public class TransformationRdv implements IRendezVousTransformation {
     @Override
     public RendezVous fromRendezvousBeanToRendezvous(RendezVousBean rdv) {
         RendezVous result = new RendezVous();
-        User user1= new User();
-        User user2 = new User();
+
         result.setIdLiker(iUserTransformation.fromUserBeanToUser(rdv.getIdsource()));
         result.setIdTargetLiker(iUserTransformation.fromUserBeanToUser(rdv.getIdvise()));
         result.setDateRdv(rdv.getDaterdv());

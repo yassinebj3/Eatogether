@@ -8,13 +8,22 @@ import java.util.Date;
 
 public interface IRendezVous {
 
-    public void createRendezvous(RendezVousBean rdv);
+    public RendezVousBean createRendezvous(RendezVousBean rdv);
 
-    public ArrayList<RendezVousBean> ConsulterRdv (UtilisateurBean user);
+    public ArrayList<RendezVousBean> ConsulterUserRdv (UtilisateurBean user);
 
-    public void deleteRdv (UtilisateurBean userconnected, UtilisateurBean userTodelete);
+    public void deleteRdv (int rdv);
 
-    public void UpdateDateRdv(RendezVousBean rdv, Date daterdv);
+    public RendezVousBean UpdateDateRdv(int rdv, Date daterdv);
+
+    public RendezVousBean InsertLikerToRDV(UtilisateurBean usercreate,int  rdv);
+
+    public RendezVousBean InsertTargetToLikerRDV(UtilisateurBean target, int id);
+
+    public ArrayList<RendezVousBean> ConsulterRdvParRestaurant (String idRestaurant);
+    public ArrayList<RendezVousBean> ConsulterTousRdvs ();
+
+
 
 
 }

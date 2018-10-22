@@ -1,6 +1,6 @@
 package com.eatogether.Repository.RepositoryBean;
 
-import com.eatogether.Repository.User;
+
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -16,24 +16,31 @@ public class RendezVousBean {
     @GenericGenerator(name = "incrementator",strategy = "increment")
     private int idRdv;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idLiker", referencedColumnName = "id")
     private UtilisateurBean idsource;
 
-
-
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idTarget", referencedColumnName = "id")
     private UtilisateurBean idvise;
 
     @Column(name = "idRestaurant")
-    private int idrestaurant;
+    private String idrestaurant;
 
     @Column(name = "dateTodate")
     private Date daterdv;
 
     @Column(name = "note")
     private String note;
+
+    @Column(name = "isAccepted")
+    private boolean accepted; // 0 default value or not accepted else 1
+
+    @Column(name = "updateIsAccepted")
+    private boolean acceptUpdate; // default value or update not accepted 0 , else 1
+
+    @Column(name = "cancelledDate")
+    private boolean annule; // 0 default value or not cancelled yet 1 if it s cancelled
 
 
 
@@ -62,11 +69,11 @@ public class RendezVousBean {
         this.idvise = idvise;
     }
 
-    public int getIdrestaurant() {
+    public String getIdrestaurant() {
         return idrestaurant;
     }
 
-    public void setIdrestaurant(int idrestaurant) {
+    public void setIdrestaurant(String idrestaurant) {
         this.idrestaurant = idrestaurant;
     }
 
@@ -86,12 +93,39 @@ public class RendezVousBean {
         this.note = note;
     }
 
-    public RendezVousBean(UtilisateurBean idsource, UtilisateurBean idvise, int idrestaurant, Date daterdv, String note) {
+    public boolean isAccepted() {
+        return accepted;
+    }
+
+    public void setAccepted(boolean accepted) {
+        this.accepted = accepted;
+    }
+
+    public boolean isAcceptUpdate() {
+        return acceptUpdate;
+    }
+
+    public void setAcceptUpdate(boolean acceptUpdate) {
+        this.acceptUpdate = acceptUpdate;
+    }
+
+    public boolean isAnnule() {
+        return annule;
+    }
+
+    public void setAnnule(boolean annule) {
+        this.annule = annule;
+    }
+
+    public RendezVousBean(UtilisateurBean idsource, UtilisateurBean idvise, String idrestaurant, Date daterdv, String note, boolean accepted, boolean acceptUpdate, boolean annule) {
         this.idsource = idsource;
         this.idvise = idvise;
         this.idrestaurant = idrestaurant;
         this.daterdv = daterdv;
         this.note = note;
+        this.accepted = accepted;
+        this.acceptUpdate = acceptUpdate;
+        this.annule = annule;
     }
 
     public RendezVousBean() {

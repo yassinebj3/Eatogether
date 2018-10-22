@@ -23,6 +23,16 @@
 		<servlet-name>Profil</servlet-name>
 		<servlet-class>com.eatogether.Controller.Profil</servlet-class>
 	</servlet>
+	<servlet>
+
+		<servlet-name>RendezVous</servlet-name>
+		<servlet-class>com.eatogether.Controller.RendezVousCreateServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>RendezVous</servlet-name>
+		<url-pattern>/RendezVous</url-pattern>
+	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Inscription</servlet-name>
 		<url-pattern>/Inscription</url-pattern>

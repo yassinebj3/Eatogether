@@ -6,9 +6,12 @@ public class RendezVous {
 
     private User idLiker;
     private User idTargetLiker;
-    private int idRestraunt;
+    private String idRestraunt;
     private Date dateRdv ;
     private String note;
+    private boolean accepted; // 0 default value or not accepted else 1
+    private boolean acceptUpdate; // default value or update not accepted , else 1
+    private boolean annule; // 0 default value or not cancelled yet 1 if it s cancelled
 
     public User getIdLiker() {
         return idLiker;
@@ -18,9 +21,7 @@ public class RendezVous {
         this.idLiker = idLiker;
     }
 
-    public void setIdRestraunt(int idRestraunt) {
-        this.idRestraunt = idRestraunt;
-    }
+
 
     public User getIdTargetLiker() {
         return idTargetLiker;
@@ -49,19 +50,49 @@ public class RendezVous {
         this.dateRdv = dateRdv;
     }
 
-
-    public RendezVous() {
-    }
-
-    public int getIdRestraunt() {
+    public String getIdRestraunt() {
         return idRestraunt;
     }
 
-    public RendezVous(User idLiker, User idTargetLiker, int idRestraunt, Date dateRdv, String note) {
+    public void setIdRestraunt(String idRestraunt) {
+        this.idRestraunt = idRestraunt;
+    }
+
+    public boolean isAccepted() {
+        return accepted;
+    }
+
+    public void setAccepted(boolean accepted) {
+        this.accepted = accepted;
+    }
+
+    public boolean isAcceptUpdate() {
+        return acceptUpdate;
+    }
+
+    public void setAcceptUpdate(boolean acceptUpdate) {
+        this.acceptUpdate = acceptUpdate;
+    }
+
+    public boolean isAnnule() {
+        return annule;
+    }
+
+    public void setAnnule(boolean annule) {
+        this.annule = annule;
+    }
+
+    public RendezVous(User idLiker, User idTargetLiker, String idRestraunt, Date dateRdv, String note, boolean accepted, boolean acceptUpdate, boolean annule) {
         this.idLiker = idLiker;
         this.idTargetLiker = idTargetLiker;
         this.idRestraunt = idRestraunt;
         this.dateRdv = dateRdv;
         this.note = note;
+        this.accepted = accepted;
+        this.acceptUpdate = acceptUpdate;
+        this.annule = annule;
+    }
+
+    public RendezVous() {
     }
 }

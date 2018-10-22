@@ -15,3 +15,10 @@ create table RendezVous (
    PRIMARY KEY (id)
 );
 
+ALTER TABLE rendezvous
+ADD isAccepted BOOLEAN DEFAULT FALSE,
+ADD updateIsAccepted boolean DEFAULT false,
+ADD cancelledDate boolean DEFAULT false;
+
+ALTER TABLE users MODIFY COLUMN mail varchar(100) UNIQUE;
+ALTER TABLE rendezvous MODIFY COLUMN idLiker int null

@@ -3,7 +3,10 @@ package com.eatogether.Repository.RepositoryBean;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "Users")
@@ -31,6 +34,13 @@ public class UtilisateurBean {
 
     @Column(name = "dateofbirth")
     private Date datedenaissance;
+
+    @OneToMany(mappedBy = "idsource", fetch = FetchType.EAGER)
+    private List<RendezVousBean> listesourcerdv ;
+
+    @OneToMany(mappedBy = "idvise" , fetch = FetchType.EAGER)
+    private List<RendezVousBean> listetarget ;
+
 
     public int getId() {
         return id;
@@ -105,4 +115,19 @@ public class UtilisateurBean {
 
     }
 
+    public List<RendezVousBean> getListesourcerdv() {
+        return listesourcerdv;
+    }
+
+    public void setListesourcerdv(List<RendezVousBean> listesourcerdv) {
+        this.listesourcerdv = listesourcerdv;
+    }
+
+    public List<RendezVousBean> getListetarget() {
+        return listetarget;
+    }
+
+    public void setListetarget(List<RendezVousBean> listetarget) {
+        this.listetarget = listetarget;
+    }
 }
