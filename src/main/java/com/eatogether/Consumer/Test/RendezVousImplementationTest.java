@@ -44,7 +44,7 @@ public class RendezVousImplementationTest {
         user.setMotdepasse("1525425");
         UtilisateurBean utilisateurPersistance = iUserTransformation.fromUserToUserBean(user);
         iUsers.persistuser(utilisateurPersistance);
-       listerdvs  = iRendezVousTransformation.fromListeRendezvousBeanToListeRendezvous(iRendezVous.ConsulterRdv(utilisateurPersistance));
+       listerdvs  = iRendezVousTransformation.fromListeRendezvousBeanToListeRendezvous(iRendezVous.ConsulterUserRdv(utilisateurPersistance));
 
         System.out.println(listerdvs.size());
     }
@@ -98,7 +98,7 @@ public class RendezVousImplementationTest {
         User user = new User();
         user = iUserTransformation.fromUserBeanToUser(iUsers.getUserDetails("theyri.darine01@gmail.com"));
         RendezVous rdv1 = new RendezVous();
-        rdv1.setIdRestraunt(5);
+        rdv1.setIdRestraunt("kjhfuld");
         rdv1.setDateRdv(java.util.Calendar.getInstance().getTime());
         rdv1.setNote("tresbon");
         RendezVousBean liste =iRendezVous.createRendezvous(iRendezVousTransformation.fromRendezvousToRendezvousBean(rdv1));
@@ -110,9 +110,34 @@ public class RendezVousImplementationTest {
     public void getListOf()
     {
 
-
-        List<RendezVousBean> liste =iRendezVous.ConsulterRdv(iUsers.getUserDetails("theyri.darine01@gmail.com"));
+        List<RendezVousBean> liste =iRendezVous.ConsulterUserRdv(iUsers.getUserDetails("theyri.darine01@gmail.com"));
         System.out.println(liste.size());
 
+    }
+
+    @Test
+    public void getAllListOf()
+    {
+
+        ArrayList<RendezVousBean> liste =iRendezVous.ConsulterTousRdvs(iUsers.getUserDetails("theyri.darine01@gmail.com"));
+        System.out.println(iRendezVousTransformation.fromRendezvousBeanToRendezvous(liste.get(0)).getId());
+
+    }
+
+    @Test
+    public void getAllListOfFriends()
+    {
+
+        List<String> liste =iRendezVous.GetListOfFriends(iUsers.getUserDetails("theyri.darine01@gmail.com"));
+        System.out.println(liste.get(0));
+
+    }
+
+    @Test
+    public void AddtarhetToLiker()
+    {
+
+        RendezVousBean liste =iRendezVous.InsertTargetToLikerRDV(iUsers.getUserDetails("theyri.darine02@gmail.com"),11);
+        System.out.println(liste.getIdrestaurant());
     }
 }

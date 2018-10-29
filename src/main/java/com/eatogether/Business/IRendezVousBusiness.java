@@ -4,6 +4,7 @@ import com.eatogether.Repository.RendezVous;
 import com.eatogether.Repository.RepositoryBean.UtilisateurBean;
 import com.eatogether.Repository.User;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -14,7 +15,9 @@ public interface IRendezVousBusiness {
     public RendezVous updateRDV(int rendezVous, Date date);
     public List<RendezVous> GetListRdvUser(String user);
     public List<RendezVous> GetListRdv_REST(String restaurant);
-    public List<RendezVous> GetListRdvS();
+    public List<RendezVous> GetListRdvS(String user);
+    public ArrayList<String> GetListOfFriends(String user);
+
     public void DeleteRDV(int id);
 
 

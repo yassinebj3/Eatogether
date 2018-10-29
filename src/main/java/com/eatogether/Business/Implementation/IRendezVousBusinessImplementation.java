@@ -14,6 +14,7 @@ import com.eatogether.Repository.RepositoryBean.RendezVousBean;
 import com.eatogether.Repository.RepositoryBean.UtilisateurBean;
 import com.eatogether.Repository.User;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -56,8 +57,15 @@ public class IRendezVousBusinessImplementation implements IRendezVousBusiness {
     }
 
     @Override
-    public List<RendezVous> GetListRdvS() {
-        return iRendezVousTransformation.fromListeRendezvousBeanToListeRendezvous(iRendezVous.ConsulterTousRdvs());
+    public List<RendezVous> GetListRdvS(String user) {
+        UtilisateurBean usernew=iUsers.getUserDetails(user);
+        return iRendezVousTransformation.fromListeRendezvousBeanToListeRendezvous(iRendezVous.ConsulterTousRdvs(usernew));
+    }
+
+    @Override
+    public ArrayList<String> GetListOfFriends(String user) {
+        return iRendezVous.GetListOfFriends(iUsers.getUserDetails(user));
+
     }
 
     @Override

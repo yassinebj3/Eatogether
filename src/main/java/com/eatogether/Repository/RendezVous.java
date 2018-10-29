@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class RendezVous {
 
+    private int id;
     private User idLiker;
     private User idTargetLiker;
     private String idRestraunt;
@@ -80,6 +81,14 @@ public class RendezVous {
 
     public void setAnnule(boolean annule) {
         this.annule = annule;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public RendezVous(User idLiker, User idTargetLiker, String idRestraunt, Date dateRdv, String note, boolean accepted, boolean acceptUpdate, boolean annule) {

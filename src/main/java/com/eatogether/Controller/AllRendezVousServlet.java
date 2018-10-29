@@ -38,7 +38,8 @@ public class AllRendezVousServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        List<RendezVous> list=  iRendezVousBusiness.GetListRdvS();
+        String mail = (String) session.getAttribute("login");
+        List<RendezVous> list=  iRendezVousBusiness.GetListRdvS(mail);
         this.getServletContext()
                 .getRequestDispatcher("/recherche.jsp")
                 .forward(request, response);

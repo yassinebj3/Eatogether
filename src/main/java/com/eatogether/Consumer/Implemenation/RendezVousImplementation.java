@@ -1,6 +1,7 @@
 package com.eatogether.Consumer.Implemenation;
 
 import com.eatogether.Consumer.IRendezVous;
+import com.eatogether.Consumer.IUsers;
 import com.eatogether.Repository.RepositoryBean.RendezVousBean;
 import com.eatogether.Repository.RepositoryBean.UtilisateurBean;
 import org.hibernate.SessionFactory;
@@ -16,6 +17,7 @@ public class RendezVousImplementation implements IRendezVous {
 
     EntityManagerFactory EntityManagerfactory = Persistence.createEntityManagerFactory("org.hibernate.tutorial.jpa");
     EntityManager entityManager = EntityManagerfactory.createEntityManager();
+    IUsers iUsers = new UsersImplementation();
     SessionFactory sessionFactory ;
 
 
@@ -25,7 +27,9 @@ public class RendezVousImplementation implements IRendezVous {
     String ADD_LIKER_RDV="Update  RendezVousBean u set u.idsource =:user where u.idRdv =:id" ;
     String ADD_TARGER_RDV="Update  RendezVousBean u set u.idvise =:user where u.idRdv =:id" ;
     String GET_RDV_BY_REST="select u from RendezVousBean u where u.idrestaurant =:idrest" ;
-    String GET_RDVS="select u from RendezVousBean u where u.idvise IS null" ;
+    String GET_RDVS="select u from RendezVousBean u where u.idvise IS null and u.idsource <>:user and u.accepted <> true and u.annule <> true" ;
+    String GET_FRIENDS="select u from RendezVousBean u where  u.idvise IS not null and u.idsource =:user and u.accepted = true and u.annule <> true" ;
+
 
 
 
@@ -112,14 +116,34 @@ public class RendezVousImplementation implements IRendezVous {
     }
 
     @Override
-    public ArrayList<RendezVousBean> ConsulterTousRdvs() {
+    public ArrayList<RendezVousBean> ConsulterTousRdvs(UtilisateurBean usercreate) {
         entityManager.getTransaction().begin();
 
         Query details =entityManager.createQuery(GET_RDVS);
-
+        details.setParameter("user",usercreate);
         entityManager.getTransaction().commit();
 
         return (ArrayList<RendezVousBean>) details.getResultList();
+    }
+
+    @Override
+    public ArrayList<String> GetListOfFriends(UtilisateurBean usercreate) {
+        ArrayList<String> friends = new ArrayList<String>();
+        ArrayList<RendezVousBean> friendsBeans = new ArrayList<RendezVousBean>();
+
+        entityManager.getTransaction().begin();
+
+        Query details =entityManager.createQuery(GET_FRIENDS);
+        details.setParameter("user",usercreate);
+        entityManager.getTransaction().commit();
+        friendsBeans = (ArrayList<RendezVousBean>) details.getResultList();
+        System.out.println("********"+friendsBeans.size());
+        for (RendezVousBean p : friendsBeans)
+        {
+            friends.add(iUsers.getUserByID(p.getIdvise().getId()).getAdressemail());
+        }
+
+        return friends;
     }
 
 

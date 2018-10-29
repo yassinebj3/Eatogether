@@ -38,5 +38,17 @@ class UsersImplementationTest {
         System.out.println(user.getNom());
     }
 
+    @Test
+    public void TestupdateUser()
+    {
+
+        UtilisateurBean ub=iUsers.getUserDetails("theyri.darine01@gmail.com");
+        ub.setMotpasse("helloooo");
+        iUsers.updateUserInformations(ub);
+
+        System.out.println(iUsers.updateUserInformations(ub).getMotpasse());
+    }
+
+
 
 }

@@ -2,6 +2,7 @@ package com.eatogether.Controller;
 
 import com.eatogether.Business.IRendezVousBusiness;
 import com.eatogether.Business.Implementation.IRendezVousBusinessImplementation;
+import org.json.JSONObject;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -39,7 +40,7 @@ public class UpdateRendezVousServlet extends HttpServlet {
         HttpSession session = request.getSession();
         Date Date = (Date) session.getAttribute("date");
         int idrdv = (Integer) session.getAttribute("Idrdv");
-        iRendezVousBusiness.updateRDV(idrdv,Date);
+        JSONObject RendezVousUpdated = new JSONObject(iRendezVousBusiness.updateRDV(idrdv,Date));
         this.getServletContext()
                 .getRequestDispatcher("/recherche.jsp")
                 .forward(request, response);

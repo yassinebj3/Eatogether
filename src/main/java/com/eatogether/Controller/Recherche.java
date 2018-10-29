@@ -44,8 +44,6 @@ public class Recherche extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		
 		String place = request.getParameter("place");
 		String query = request.getParameter("query");
 		String limit = request.getParameter("limit");

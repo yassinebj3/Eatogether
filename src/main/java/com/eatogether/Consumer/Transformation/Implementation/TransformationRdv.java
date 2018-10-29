@@ -19,6 +19,7 @@ public class TransformationRdv implements IRendezVousTransformation {
     public RendezVousBean fromRendezvousToRendezvousBean(RendezVous rdv) {
 
         RendezVousBean result = new RendezVousBean();
+        result.setIdRdv(rdv.getId());
         if(rdv.getIdLiker()!=null)
         result.setIdsource(iUserTransformation.fromUserToUserBean(rdv.getIdLiker()));
         if(rdv.getIdTargetLiker()!=null)
@@ -34,8 +35,10 @@ public class TransformationRdv implements IRendezVousTransformation {
     @Override
     public RendezVous fromRendezvousBeanToRendezvous(RendezVousBean rdv) {
         RendezVous result = new RendezVous();
-
+        result.setId(rdv.getIdRdv());
+        if(rdv.getIdsource()!=null)
         result.setIdLiker(iUserTransformation.fromUserBeanToUser(rdv.getIdsource()));
+        if(rdv.getIdvise()!=null)
         result.setIdTargetLiker(iUserTransformation.fromUserBeanToUser(rdv.getIdvise()));
         result.setDateRdv(rdv.getDaterdv());
         result.setIdRestraunt(rdv.getIdrestaurant());

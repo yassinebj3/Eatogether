@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 public class UsersImplementation implements IUsers {
 
@@ -14,6 +15,7 @@ public class UsersImplementation implements IUsers {
     EntityManager entityManager = EntityManagerfactory.createEntityManager();
 
     private String USER_DETAILS="Select u from UtilisateurBean u where u.adressemail =:newmail";
+    private String USER_DETAILS_BY_ID="Select u from UtilisateurBean u where u.id =: id";
 
 
     @Override
@@ -41,9 +43,22 @@ public class UsersImplementation implements IUsers {
     }
 
     @Override
+    @Transactional
     public UtilisateurBean updateUserInformations(UtilisateurBean user) {
-        return entityManager.merge(user);
+        UtilisateurBean utilisateurBean= entityManager.merge(user);
+        //entityManager.flush();
+        return utilisateurBean;
 
+
+
+    }
+
+    @Override
+    public UtilisateurBean getUserByID(int id) {
+        Query details =entityManager.createQuery(USER_DETAILS_BY_ID);
+        details.setParameter("id",id);
+
+        return (UtilisateurBean) details.getSingleResult();
     }
 
 
