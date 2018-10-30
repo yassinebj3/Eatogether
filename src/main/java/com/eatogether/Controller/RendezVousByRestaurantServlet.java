@@ -40,7 +40,8 @@ public class RendezVousByRestaurantServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         String idrestaurant = (String) session.getAttribute("idrestaurant");
-        List<RendezVous> list=iRendezVousBusiness.GetListRdv_REST(idrestaurant);
+        String mzil=(String) session.getAttribute("login");
+        List<RendezVous> list=iRendezVousBusiness.GetListRdv_REST(idrestaurant,mzil);
         this.getServletContext()
                 .getRequestDispatcher("/recherche.jsp")
                 .forward(request, response);

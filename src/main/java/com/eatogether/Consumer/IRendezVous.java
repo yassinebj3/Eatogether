@@ -20,7 +20,7 @@ public interface IRendezVous {
 
     public RendezVousBean InsertTargetToLikerRDV(UtilisateurBean target, int id);
 
-    public ArrayList<RendezVousBean> ConsulterRdvParRestaurant (String idRestaurant);
+    public ArrayList<RendezVousBean> ConsulterRdvParRestaurant (String idRestaurant, UtilisateurBean user);
     public ArrayList<RendezVousBean> ConsulterTousRdvs (UtilisateurBean usercreate);
     public  ArrayList<String> GetListOfFriends(UtilisateurBean usercreate);
 

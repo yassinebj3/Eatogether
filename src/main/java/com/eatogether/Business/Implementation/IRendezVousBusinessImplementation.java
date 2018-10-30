@@ -52,8 +52,9 @@ public class IRendezVousBusinessImplementation implements IRendezVousBusiness {
     }
 
     @Override
-    public List<RendezVous> GetListRdv_REST(String restaurant) {
-        return iRendezVousTransformation.fromListeRendezvousBeanToListeRendezvous(iRendezVous.ConsulterRdvParRestaurant(restaurant));
+    public List<RendezVous> GetListRdv_REST(String restaurant,String user) {
+        UtilisateurBean usernew=iUsers.getUserDetails(user);
+        return iRendezVousTransformation.fromListeRendezvousBeanToListeRendezvous(iRendezVous.ConsulterRdvParRestaurant(restaurant,usernew));
     }
 
     @Override

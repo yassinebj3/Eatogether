@@ -25,8 +25,8 @@ public class RendezVousImplementation implements IRendezVous {
     String DELETE_RDV="Delete from RendezVousBean u where u.idRdv =:id";
     String UPDATE_RDV="Update  RendezVousBean u set u.daterdv =:Date where u.idRdv =:id";
     String ADD_LIKER_RDV="Update  RendezVousBean u set u.idsource =:user where u.idRdv =:id" ;
-    String ADD_TARGER_RDV="Update  RendezVousBean u set u.idvise =:user where u.idRdv =:id" ;
-    String GET_RDV_BY_REST="select u from RendezVousBean u where u.idrestaurant =:idrest" ;
+    String ADD_TARGER_RDV="Update  RendezVousBean u set u.idvise =:user , u.accepted = true where u.idRdv =:id" ;
+    String GET_RDV_BY_REST="select u from RendezVousBean u where u.idrestaurant =:idrest and u.idsource <>:user and u.accepted <> true and u.annule <> true" ;
     String GET_RDVS="select u from RendezVousBean u where u.idvise IS null and u.idsource <>:user and u.accepted <> true and u.annule <> true" ;
     String GET_FRIENDS="select u from RendezVousBean u where  u.idvise IS not null and u.idsource =:user and u.accepted = true and u.annule <> true" ;
 
@@ -105,11 +105,12 @@ public class RendezVousImplementation implements IRendezVous {
     }
 
     @Override
-    public ArrayList<RendezVousBean> ConsulterRdvParRestaurant(String idRestaurant) {
+    public ArrayList<RendezVousBean> ConsulterRdvParRestaurant(String idRestaurant,UtilisateurBean user ) {
         entityManager.getTransaction().begin();
 
         Query details =entityManager.createQuery(GET_RDV_BY_REST);
         details.setParameter("idrest",idRestaurant);
+        details.setParameter("user",user);
         entityManager.getTransaction().commit();
 
         return (ArrayList<RendezVousBean>) details.getResultList();

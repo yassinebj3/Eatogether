@@ -7,36 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f318a383-a9df-43e3-9e11-2732beb89efe" name="Default Changelist" comment="DT-Rdv-15-10">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Eatogether_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Eatogether_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Eatogether.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Eatogether.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/eatogether/Business/IRendezVousBusiness.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eatogether/Business/IRendezVousBusiness.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/eatogether/Business/Implementation/IRendezVousBusinessImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eatogether/Business/Implementation/IRendezVousBusinessImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/IRendezVous.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/IRendezVous.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/IUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/IUsers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Implemenation/RendezVousImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Implemenation/RendezVousImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Implemenation/UsersImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Implemenation/UsersImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Test/RendezVousImplementationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Test/RendezVousImplementationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Test/UsersImplementationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Test/UsersImplementationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Transformation/Implementation/TransformationRdv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Transformation/Implementation/TransformationRdv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eatogether/Controller/AllRendezVousServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eatogether/Controller/AllRendezVousServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eatogether/Controller/Recherche.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eatogether/Controller/Recherche.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eatogether/Controller/UpdateRendezVousServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eatogether/Controller/UpdateRendezVousServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eatogether/Repository/RendezVous.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eatogether/Repository/RendezVous.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/eatogether/Business/IRendezVousBusiness.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/eatogether/Business/IRendezVousBusiness.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/eatogether/Business/Implementation/IRendezVousImplementation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/eatogether/Consumer/IRendezVous.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/eatogether/Consumer/IRendezVous.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/eatogether/Consumer/IUsers.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/eatogether/Consumer/IUsers.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/eatogether/Consumer/Implemenation/RendezVousImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/eatogether/Consumer/Implemenation/RendezVousImplementation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/eatogether/Consumer/Implemenation/UsersImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/eatogether/Consumer/Implemenation/UsersImplementation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/eatogether/Consumer/Test/RendezVousImplementationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/eatogether/Consumer/Test/RendezVousImplementationTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/eatogether/Consumer/Test/UsersImplementationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/eatogether/Consumer/Test/UsersImplementationTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/eatogether/Consumer/Transformation/Implementation/TransformationRdv.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/eatogether/Consumer/Transformation/Implementation/TransformationRdv.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/eatogether/Controller/Recherche.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/eatogether/Controller/Recherche.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/eatogether/Controller/RendezVousServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/eatogether/Repository/RendezVous.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/eatogether/Repository/RendezVous.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/eatogether/Repository/RepositoryBean/RendezVousBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/eatogether/Repository/RepositoryBean/RendezVousBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eatogether/Controller/RendezVousByRestaurantServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eatogether/Controller/RendezVousByRestaurantServlet.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -68,7 +45,7 @@
     <session id="68707553">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="24" />
+          <entry key="project.closed" value="25" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.114" value="1" />
           <entry key="project.open.time.12" value="1" />
@@ -84,14 +61,14 @@
           <entry key="project.open.time.75" value="1" />
           <entry key="project.open.time.76" value="1" />
           <entry key="project.open.time.81" value="1" />
-          <entry key="project.open.time.83" value="1" />
+          <entry key="project.open.time.83" value="2" />
           <entry key="project.open.time.86" value="1" />
           <entry key="project.open.time.89" value="2" />
           <entry key="project.open.time.90" value="1" />
           <entry key="project.open.time.91" value="1" />
           <entry key="project.open.time.96" value="1" />
           <entry key="project.open.time.98" value="1" />
-          <entry key="project.opened" value="25" />
+          <entry key="project.opened" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -102,7 +79,7 @@
           <entry key="classpath" value="1" />
           <entry key="component" value="1" />
           <entry key="fxml" value="1" />
-          <entry key="java" value="180" />
+          <entry key="java" value="182" />
           <entry key="jsp" value="18" />
           <entry key="project" value="1" />
           <entry key="properties" value="2" />
@@ -113,7 +90,7 @@
         <counts>
           <entry key="CLASS" value="27" />
           <entry key="Eclipse" value="2" />
-          <entry key="JAVA" value="180" />
+          <entry key="JAVA" value="182" />
           <entry key="JSP" value="18" />
           <entry key="Manifest" value="6" />
           <entry key="PLAIN_TEXT" value="1" />
@@ -127,7 +104,7 @@
           <entry key="DatabaseCreation" value="8" />
           <entry key="MF" value="21" />
           <entry key="dummy" value="35" />
-          <entry key="java" value="6835" />
+          <entry key="java" value="6935" />
           <entry key="jsp" value="123" />
           <entry key="txt" value="131" />
           <entry key="xml" value="77" />
@@ -135,7 +112,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="6835" />
+          <entry key="JAVA" value="6935" />
           <entry key="JSP" value="123" />
           <entry key="Manifest" value="21" />
           <entry key="PLAIN_TEXT" value="166" />
@@ -158,52 +135,37 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Transformation/Implementation/TransformationRdv.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="42" column="20" lean-forward="true" selection-end-line="63" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Repository/RendezVous.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="101" column="24" selection-end-line="107" />
-              <folding>
-                <element signature="e#1768#1769#0" expanded="true" />
-                <element signature="e#1793#1794#0" expanded="true" />
-                <element signature="e#1826#1827#0" expanded="true" />
-                <element signature="e#1854#1855#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Transformation/Implementation/TransformationUser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
+            <state relative-caret-position="374">
               <caret line="26" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Test/RendezVousImplementationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="124" column="5" selection-start-line="124" selection-start-column="5" selection-end-line="124" selection-end-column="5" />
+            <state relative-caret-position="194">
+              <caret line="139" column="117" selection-start-line="139" selection-start-column="117" selection-end-line="139" selection-end-column="117" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Controller/RendezVousByRestaurantServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="401">
+              <caret line="43" column="83" selection-start-line="43" selection-start-column="83" selection-end-line="43" selection-end-column="83" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Business/IRendezVousBusiness.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+            <state relative-caret-position="236">
+              <caret line="16" column="73" selection-start-line="16" selection-start-column="73" selection-end-line="16" selection-end-column="73" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -214,7 +176,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Controller/AllRendezVousServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
+            <state relative-caret-position="527">
               <caret line="41" column="68" selection-start-line="41" selection-start-column="68" selection-end-line="41" selection-end-column="68" />
             </state>
           </provider>
@@ -223,8 +185,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Implemenation/RendezVousImplementation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="118" column="35" selection-start-line="118" selection-start-column="21" selection-end-line="118" selection-end-column="35" />
+            <state relative-caret-position="150">
+              <caret line="28" column="73" lean-forward="true" selection-start-line="28" selection-start-column="73" selection-end-line="28" selection-end-column="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Repository/RepositoryBean/RendezVousBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="36" column="28" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -232,8 +203,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Controller/RendezVousAddTargetServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="40" column="61" lean-forward="true" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="61" />
+            <state relative-caret-position="510">
+              <caret line="40" column="61" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -241,8 +212,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Business/Implementation/IRendezVousBusinessImplementation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+            <state relative-caret-position="209">
+              <caret line="56" column="138" selection-start-line="56" selection-start-column="138" selection-end-line="56" selection-end-column="138" />
             </state>
           </provider>
         </entry>
@@ -250,8 +221,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/IRendezVous.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="24" column="60" lean-forward="true" selection-start-line="24" selection-end-line="25" />
+            <state relative-caret-position="251">
+              <caret line="22" column="105" selection-start-line="22" selection-start-column="85" selection-end-line="22" selection-end-column="105" />
             </state>
           </provider>
         </entry>
@@ -327,23 +298,23 @@
         <option value="$PROJECT_DIR$/src/main/java/com/eatogether/Controller/RendezVousServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/eatogether/Controller/RendezVousCreateServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/eatogether/Controller/RendezVousAddTargetServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/eatogether/Controller/RendezVousByRestaurantServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/eatogether/Controller/DeleteRendezVousServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/eatogether/Controller/RendezVousByUserServlet.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/eatogether/Controller/UpdateRendezVousServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/eatogether/Controller/Recherche.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/IRendezVous.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Test/UsersImplementationTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/IUsers.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Implemenation/UsersImplementation.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/eatogether/Repository/RendezVous.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Test/RendezVousImplementationTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Transformation/Implementation/TransformationRdv.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/eatogether/Controller/AllRendezVousServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/IRendezVous.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Implemenation/RendezVousImplementation.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/eatogether/Business/IRendezVousBusiness.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/eatogether/Business/Implementation/IRendezVousBusinessImplementation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/eatogether/Controller/AllRendezVousServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Implemenation/RendezVousImplementation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/eatogether/Controller/RendezVousByRestaurantServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Test/RendezVousImplementationTest.java" />
       </list>
     </option>
   </component>
@@ -473,7 +444,37 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="eatogether" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+              <item name="Business" type="462c0819:PsiDirectoryNode" />
+              <item name="Implementation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Eatogether" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Eatogether-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="eatogether" type="462c0819:PsiDirectoryNode" />
+              <item name="Consumer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Eatogether" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Eatogether-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="eatogether" type="462c0819:PsiDirectoryNode" />
+              <item name="Consumer" type="462c0819:PsiDirectoryNode" />
+              <item name="Implemenation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Eatogether" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Eatogether-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="eatogether" type="462c0819:PsiDirectoryNode" />
+              <item name="Consumer" type="462c0819:PsiDirectoryNode" />
+              <item name="Test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Eatogether" type="b2602c69:ProjectViewProjectNode" />
@@ -491,14 +492,8 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="eatogether" type="462c0819:PsiDirectoryNode" />
-              <item name="Sql" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Eatogether" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Eatogether-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="Repository" type="462c0819:PsiDirectoryNode" />
+              <item name="RepositoryBean" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -509,7 +504,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540852086740" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540934058828" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -551,7 +546,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.RendezVousImplementationTest.getAllListOf">
+  <component name="RunManager" selected="JUnit.RendezVousImplementationTest.AddtarhetToLiker">
     <configuration name="RendezVousImplementationTest.AddtarhetToLiker" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Eatogether" />
       <extension name="coverage">
@@ -563,6 +558,22 @@
       <option name="PACKAGE_NAME" value="com.eatogether.Consumer.Test" />
       <option name="MAIN_CLASS_NAME" value="com.eatogether.Consumer.Test.RendezVousImplementationTest" />
       <option name="METHOD_NAME" value="AddtarhetToLiker" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RendezVousImplementationTest.Getrestaurants" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Eatogether" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.eatogether.Consumer.Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.eatogether.Consumer.Test" />
+      <option name="MAIN_CLASS_NAME" value="com.eatogether.Consumer.Test.RendezVousImplementationTest" />
+      <option name="METHOD_NAME" value="Getrestaurants" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -595,22 +606,6 @@
       <option name="PACKAGE_NAME" value="com.eatogether.Consumer.Test" />
       <option name="MAIN_CLASS_NAME" value="com.eatogether.Consumer.Test.RendezVousImplementationTest" />
       <option name="METHOD_NAME" value="getAllListOfFriends" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RendezVousImplementationTest.getListOf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Eatogether" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.eatogether.Consumer.Test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.eatogether.Consumer.Test" />
-      <option name="MAIN_CLASS_NAME" value="com.eatogether.Consumer.Test.RendezVousImplementationTest" />
-      <option name="METHOD_NAME" value="getListOf" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -705,19 +700,19 @@
     </configuration>
     <list>
       <item itemvalue="Tomcat Server.tomcat" />
-      <item itemvalue="JUnit.RendezVousImplementationTest.getListOf" />
       <item itemvalue="JUnit.RendezVousImplementationTest.AddtarhetToLiker" />
       <item itemvalue="JUnit.UsersImplementationTest.TestupdateUser" />
       <item itemvalue="JUnit.RendezVousImplementationTest.getAllListOf" />
       <item itemvalue="JUnit.RendezVousImplementationTest.getAllListOfFriends" />
+      <item itemvalue="JUnit.RendezVousImplementationTest.Getrestaurants" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RendezVousImplementationTest.AddtarhetToLiker" />
+        <item itemvalue="JUnit.RendezVousImplementationTest.Getrestaurants" />
         <item itemvalue="JUnit.RendezVousImplementationTest.getAllListOf" />
         <item itemvalue="JUnit.RendezVousImplementationTest.getAllListOfFriends" />
         <item itemvalue="JUnit.UsersImplementationTest.TestupdateUser" />
-        <item itemvalue="JUnit.RendezVousImplementationTest.AddtarhetToLiker" />
-        <item itemvalue="JUnit.RendezVousImplementationTest.getListOf" />
       </list>
     </recent_temporary>
   </component>
@@ -755,7 +750,8 @@
       <workItem from="1540473842078" duration="4988000" />
       <workItem from="1540494475596" duration="956000" />
       <workItem from="1540750162304" duration="2601000" />
-      <workItem from="1540847241244" duration="4943000" />
+      <workItem from="1540847241244" duration="5185000" />
+      <workItem from="1540932137830" duration="1892000" />
     </task>
     <task id="LOCAL-00001" summary="Version-Darine Hibernate">
       <created>1539011402569</created>
@@ -789,12 +785,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RendezVousImplementationTest_getAllListOfFriends - 2018.10.29 at 22h 36m 25s.xml">
-      <configuration name="RendezVousImplementationTest.getAllListOfFriends" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RendezVousImplementationTest_getAllListOfFriends - 2018.10.29 at 22h 37m 31s.xml">
-      <configuration name="RendezVousImplementationTest.getAllListOfFriends" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="RendezVousImplementationTest_getAllListOfFriends - 2018.10.29 at 22h 43m 54s.xml">
       <configuration name="RendezVousImplementationTest.getAllListOfFriends" configurationId="JUnit" />
     </history-entry>
@@ -819,9 +809,15 @@
     <history-entry file="RendezVousImplementationTest_getAllListOf - 2018.10.29 at 23h 14m 05s.xml">
       <configuration name="RendezVousImplementationTest.getAllListOf" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="RendezVousImplementationTest_Getrestaurants - 2018.10.30 at 22h 09m 36s.xml">
+      <configuration name="RendezVousImplementationTest.Getrestaurants" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RendezVousImplementationTest_Getrestaurants - 2018.10.30 at 22h 12m 57s.xml">
+      <configuration name="RendezVousImplementationTest.Getrestaurants" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125192000" />
+    <option name="totallyTimeSpent" value="127326000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -836,9 +832,9 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.85737705" visible="true" weight="0.30257186" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.85231316" visible="true" weight="0.30711043" />
       <window_info id="Structure" order="1" sideWeight="0.17603911" side_tool="true" weight="0.24962178" />
-      <window_info id="Persistence" order="2" sideWeight="0.14262295" side_tool="true" visible="true" weight="0.30257186" />
+      <window_info id="Persistence" order="2" sideWeight="0.14768684" side_tool="true" visible="true" weight="0.30711043" />
       <window_info id="Designer" order="3" />
       <window_info id="Image Layers" order="4" />
       <window_info id="UI Designer" order="5" />
@@ -847,15 +843,15 @@
       <window_info id="Web" order="8" sideWeight="0.3478261" side_tool="true" weight="0.30635837" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.0" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.078688525" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.014754098" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.7819672" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49924356" weight="0.7163935" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49924356" weight="0.0" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50075644" side_tool="true" weight="0.58360654" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.40819672" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.1442623" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.3295082" />
       <window_info anchor="bottom" id="Database Changes" order="12" weight="0.004918033" />
       <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49924356" weight="0.3295082" />
@@ -1055,13 +1051,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Controller/RendezVousByRestaurantServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="42" column="30" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Controller/RendezVousByUserServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -1160,37 +1149,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Repository/RepositoryBean/RendezVousBean.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Transformation/Implementation/TransformationRdv.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-48">
-          <caret line="36" column="28" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Transformation/Implementation/TransformationUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/IRendezVous.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="24" column="60" lean-forward="true" selection-start-line="24" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Controller/RendezVousAddTargetServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="40" column="61" lean-forward="true" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="61" />
+        <state relative-caret-position="561">
+          <caret line="42" column="20" selection-end-line="63" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Repository/RendezVous.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
+        <state relative-caret-position="1105">
           <caret line="101" column="24" selection-end-line="107" />
           <folding>
             <element signature="e#1768#1769#0" expanded="true" />
@@ -1201,48 +1169,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Transformation/Implementation/TransformationRdv.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Transformation/Implementation/TransformationUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="42" column="20" lean-forward="true" selection-end-line="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Implemenation/RendezVousImplementation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="118" column="35" selection-start-line="118" selection-start-column="21" selection-end-line="118" selection-end-column="35" />
+        <state relative-caret-position="374">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Controller/AllRendezVousServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
+        <state relative-caret-position="527">
           <caret line="41" column="68" selection-start-line="41" selection-start-column="68" selection-end-line="41" selection-end-column="68" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Test/RendezVousImplementationTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Controller/RendezVousAddTargetServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="124" column="5" selection-start-line="124" selection-start-column="5" selection-end-line="124" selection-end-column="5" />
+        <state relative-caret-position="510">
+          <caret line="40" column="61" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="61" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Business/Implementation/IRendezVousBusinessImplementation.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/IRendezVous.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+        <state relative-caret-position="251">
+          <caret line="22" column="105" selection-start-line="22" selection-start-column="85" selection-end-line="22" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Repository/RepositoryBean/RendezVousBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="36" column="28" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Business/IRendezVousBusiness.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+        <state relative-caret-position="236">
+          <caret line="16" column="73" selection-start-line="16" selection-start-column="73" selection-end-line="16" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Business/Implementation/IRendezVousBusinessImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="56" column="138" selection-start-line="56" selection-start-column="138" selection-end-line="56" selection-end-column="138" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Controller/RendezVousByRestaurantServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="43" column="83" selection-start-line="43" selection-start-column="83" selection-end-line="43" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Implemenation/RendezVousImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="28" column="73" lean-forward="true" selection-start-line="28" selection-start-column="73" selection-end-line="28" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/eatogether/Consumer/Test/RendezVousImplementationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="139" column="117" selection-start-line="139" selection-start-column="117" selection-end-line="139" selection-end-column="117" />
         </state>
       </provider>
     </entry>

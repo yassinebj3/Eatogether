@@ -137,7 +137,15 @@ public class RendezVousImplementationTest {
     public void AddtarhetToLiker()
     {
 
-        RendezVousBean liste =iRendezVous.InsertTargetToLikerRDV(iUsers.getUserDetails("theyri.darine02@gmail.com"),11);
+        RendezVousBean liste =iRendezVous.InsertTargetToLikerRDV(iUsers.getUserDetails("theyri.darine02@gmail.com"),4);
         System.out.println(liste.getIdrestaurant());
+    }
+
+    @Test
+    public void Getrestaurants()
+    {
+
+        ArrayList<RendezVousBean> liste =iRendezVous.ConsulterRdvParRestaurant("5",iUsers.getUserDetails("theyri.darine02@gmail.com"));
+        System.out.println(liste.get(0).getIdRdv());
     }
 }
