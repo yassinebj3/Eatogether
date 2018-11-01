@@ -1,3 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<c:if test="${sessionScope.login == null}">
+    <jsp:forward page = "login.jsp" />
+</c:if>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -93,7 +101,7 @@
       color: #EF3B3A;
     }
     body {
-      background-image: url("images/slider.jpg"); /* fallback for old browsers */
+      background-image: url("img.jpg"); /* fallback for old browsers */
       background-size: cover ;
       font-family: "Roboto", sans-serif;
       -webkit-font-smoothing: antialiased;
@@ -118,24 +126,30 @@
     }
   </style>
 
-  <title>Mon profil</title>
+  <title>Mon profil</title>  
+  
 </head>
 
 <body>
 
 
-
 <div class="login-page">
   <div class="form">
     <form class="register-form"  method="post" action="Profil" >
-      <input id="pseudo" name="pseudo" type="text" value="${pseudo}"/>
+    
+    <input id="homme" name="gender" type="radio" value="homme" ${gender=='homme'?'checked':''}  /> Homme <br/>
+     <input id="femme" name="gender" type="radio" value="femme" ${gender=='femme'?'checked':''}/> Femme <br/>
+     
+      <input id="pseudo" name="pseudo" type="text" value="${pseudo}" required="true"/>
       <input id="nom" name="nom" type="text" value="${nom}"/>
-      <input id="prenom" name="prenom" type="text" placeholder="${prenom}"/>
-      <input id="password" name="password" type="password" placeholder="Mot de passe"/>
-      <input id="email" name="email" type="text" placeholder="Email"/>
+      <input id="prenom" name="prenom" type="text" value="${prenom}" required="true"/>
+      <input id="date_naiss" name="date_naiss" type="date" value="${date_naiss}" required="true"/>
+      <input id="password" name="password" type="password" placeholder="Mot de passe" />
       <button>Enregistrer</button>
     </form>
   </div>
 </div>
+
+
 </body>
 </html>

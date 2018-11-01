@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+ 
 <style>
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
@@ -101,8 +102,8 @@ body {
 }
 
 .gender  {
-  display: inline;
-  width : 10 % ;
+  display: inline !important;
+ 
   }
   
   .logo {
@@ -117,6 +118,7 @@ body {
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 </style>
+
 </head>
 
 <body>
@@ -125,12 +127,33 @@ body {
 <div class="login-page">
   <div class="form">
     <form class="register-form"  method="post" action="Inscription" >
-      <input id="email" name="email" type="text" placeholder="Email"/>
-  	  <input id="pseudo" name="pseudo" type="text" placeholder="Pseudo"/>
+    
+    
+     <input id="homme" name="gender" type="radio" value="homme" checked /> Homme <br/>
+     <input id="femme" name="gender" type="radio" value="femme" /> Femme <br/>
+               
+      <input id="email" name="email" type="text" placeholder="Email" required="true"/>     
+      <div style="color:red !important" >
+      
+        <c:if test="${err == 'true'}">
+        <c:out value="  L'utilisateur existe dèja"/>
+      </c:if>
+      
+      </div>
+      
+    
+  <!--      
+  
+ <p style="color:red"> L'utilisateur existe dèja </p>
+<%
+
+%> -->
+      
+  	  <input id="pseudo" name="pseudo" type="text" placeholder="Pseudo" required="true"/>
       <input id="nom" name="nom" type="text" placeholder="Nom"/>
-      <input id="prenom" name="prenom" type="text" placeholder="Prénom"/>
-      <input id="date" name="date" type="text" placeholder="Date de naissance"/>
-      <input id="password" name="password" type="password" placeholder="Mot de passe"/>
+      <input id="prenom" name="prenom" type="text" placeholder="Prénom" required="true"/>
+      <input id="date_naiss" name="date_naiss" type="date" required="true"/>
+      <input id="password" name="password" type="password" placeholder="Mot de passe" required="true"/>
       <button>create</button>
       <p class="message">Already registered? <a href="login.jsp">Sign In</a></p>
     </form>

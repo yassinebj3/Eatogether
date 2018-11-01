@@ -224,7 +224,7 @@ body {
 
 <div id="profile">
 
-    <div  class="fb-login-button" data-onlogin="test();" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div> 
+    <div  class="fb-login-button" scope="public_profile,email,user_birthday,user_gender" data-onlogin="test();" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div> 
 
 </div>
 
@@ -241,8 +241,8 @@ body {
 <div class="login-page">
   <div class="form">
     <form class="login-form" method="post" action="Connexion" id="cnx">
-      <input type="text" id="pseudo" name="pseudo" placeholder="Pseudo"/>
-      <input type="password" id="password" name="password" placeholder="Mot de Passe"/>
+      <input type="text" id="pseudo" name="pseudo" placeholder="E-mail" required="true"/>
+      <input type="password" id="password" name="password" placeholder="Mot de Passe" required="true"/>
       <button>login</button>
       <p class="message">Not registered? <a href="inscription.jsp">Create an account</a></p>
     </form>

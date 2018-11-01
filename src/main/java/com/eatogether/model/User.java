@@ -1,3 +1,4 @@
+
 package com.eatogether.model ;
 
 
@@ -19,6 +20,7 @@ public class User {
 	private String pseudo;
 	private String date_naissance;
 	private String email;
+	private String gender;
 	
 	
 	public User() {
@@ -104,6 +106,14 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 
 
 	public static long getSerialversionuid() {
@@ -114,7 +124,7 @@ public class User {
 
 	public static User getUser(String login) throws Exception {
 		ConnectDB db = new ConnectDB();
-		User U = new User();
+		User u = new User();
 		Connection conn = db.getConnexion();
 		String query = "select * from `UTILISATEUR` where `EMAIL`='" + login + "'";
 
@@ -124,13 +134,17 @@ public class User {
 			
 			String nom = rs.getString("nom");
 			String prenom = rs.getString("prenom");
+			String date_naiss=rs.getString("date_naissance");
 			String pseudo=rs.getString("pseudo");
+			String gender=rs.getString("sexe");
 			
 			
-			U.setEmail(login);
-			U.setPrenom(prenom);
-			U.setNom(nom);
-			U.setPseudo(pseudo);
+			u.setEmail(login);
+			u.setPrenom(prenom);
+			u.setNom(nom);
+			u.setDate_naissance(date_naiss);
+			u.setPseudo(pseudo);
+			u.setGender(gender);
 
 		}
 
@@ -142,7 +156,7 @@ public class User {
 			db.closeConnexion(conn);
 		}
 
-		return U;
+		return u;
 
 	}
 
@@ -171,7 +185,7 @@ public class User {
 	}
 	
 
-	public static boolean isRegistred(String login) throws Exception {
+	public static boolean isRegistred2(String login) throws Exception {
 		ConnectDB db = new ConnectDB();
 		boolean registred = false;
 		Connection conn = db.getConnexion();
@@ -182,7 +196,35 @@ public class User {
 			ResultSet rs = stmt.executeQuery(query);
 			rs.next();
 			int nb = rs.getInt(1);
-			System.out.println("nb"+nb);
+			
+			if (nb > 0)
+				registred = true;
+		}
+
+		catch (SQLException e) {
+			System.out.println("An exception occurred: " + e.getMessage());
+		}
+
+		finally {
+			db.closeConnexion(conn);
+		}
+
+		return registred;
+
+	}
+	
+	public static boolean isRegistred(String login, String mp) throws Exception {
+		ConnectDB db = new ConnectDB();
+		boolean registred = false;
+		Connection conn = db.getConnexion();
+		String query = "select count(*) from UTILISATEUR where EMAIL='" + login + "' and PASS='"+mp+"' ";
+
+		
+		try (Statement stmt = conn.createStatement()) {
+			ResultSet rs = stmt.executeQuery(query);
+			rs.next();
+			int nb = rs.getInt(1);
+			
 			if (nb > 0)
 				registred = true;
 		}
@@ -261,13 +303,14 @@ public class User {
 		return msg;
 	}
 	
-	public String updateUser_info(String email, String nom,
-			String prenom, String pseudo) throws Exception {
+	public static String updateUser_info(String email, String nom, String prenom, String pseudo, String date_naiss, String gender) throws Exception {
+		ConnectDB db = new ConnectDB();
 		String msg = "";
-		if (email != "" && nom != "" && prenom != "" && pseudo !="") {
+		if (email != "" && nom != "" && prenom != "" && pseudo !="" && date_naiss !="" && gender !="") {
 			Connection conn = db.getConnexion();
 			String query = "update UTILISATEUR set `nom`= '" + nom + "' , `prenom` = '"
-					+ prenom +"' , `pseudo` = '"+pseudo +"' where `email` = '"+email+"';" ;
+					+ prenom +"' , `pseudo` = '"+pseudo +"' , `date_naissance` ='"+date_naiss
+					+"' , `sexe`= '"+gender +"' where `email` = '"+email+"';" ;
 			try (Statement stmt = conn.createStatement()) {
 				stmt.executeUpdate(query);
 			} catch (SQLException e) {
@@ -305,12 +348,12 @@ public class User {
 
 
 	public static String insertUser1(String email, String mp,
-			String nom, String Prenom,String date_naiss,String pseudo) throws Exception {
+			String nom, String Prenom,String date_naiss,String pseudo, String gender) throws Exception {
 		ConnectDB db = new ConnectDB();
 		String msg = "";
 		if (email != "") {
 			Connection conn = db.getConnexion();
-			String query = "insert into UTILISATEUR(EMAIL,PASS,NOM,PRENOM,DATE_NAISSANCE,PSEUDO) values ('"
+			String query = "insert into UTILISATEUR(EMAIL,PASS,NOM,PRENOM,DATE_NAISSANCE,PSEUDO,SEXE) values ('"
 					
 					+ email
 					+ "','"
@@ -322,7 +365,9 @@ public class User {
 					+"','"
 					+date_naiss
 					+"','"
-					+ pseudo + "')";
+					+pseudo
+					+"','"
+					+ gender + "')";
 			try (Statement stmt = conn.createStatement()) {
 				stmt.executeUpdate(query);
 			} catch (SQLException e) {
@@ -338,4 +383,45 @@ public class User {
 			msg = "!! vous devez remplir tous les champs";
 		return msg;
 	}
+	
+	
+	public static String insertUser1(String email, String mp,
+			String nom, String Prenom,String date_naiss,String pseudo, String gender,String photo) throws Exception {
+		ConnectDB db = new ConnectDB();
+		String msg = "";
+		if (email != "") {
+			Connection conn = db.getConnexion();
+			String query = "insert into UTILISATEUR(EMAIL,PASS,NOM,PRENOM,DATE_NAISSANCE,PSEUDO,SEXE,PHOTO) values ('"
+					
+					+ email
+					+ "','"
+					+ mp
+					+ "','"
+					+ nom 
+					+"','"
+					+Prenom
+					+"','"
+					+date_naiss
+					+"','"
+					+pseudo
+					+"','"
+					+gender
+					+"','"
+					+ photo + "')";
+			try (Statement stmt = conn.createStatement()) {
+				stmt.executeUpdate(query);
+			} catch (SQLException e) {
+				System.out.println("An exception occurred: " + e.getMessage());
+			}
+
+			finally {
+				db.closeConnexion(conn);
+			}
+		}
+
+		else
+			msg = "!! vous devez remplir tous les champs";
+		return msg;
+	}
+
 }

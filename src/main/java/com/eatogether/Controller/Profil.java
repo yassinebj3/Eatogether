@@ -20,7 +20,7 @@ public class Profil extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String nom, prenom, pseudo;
+		String nom, prenom, pseudo,date_naiss,gender;
 		HttpSession session = request.getSession();
 		
 		
@@ -30,17 +30,20 @@ public class Profil extends HttpServlet {
 		
 		
 		try {
-			User u1 = User.getUser(mail);
+			User u = User.getUser(mail);
 			
-			nom= u1.getNom();
-			prenom=u1.getPrenom();
-			pseudo= u1.getPseudo();
+			nom= u.getNom();
+			prenom=u.getPrenom();
+			date_naiss=u.getDate_naissance();
+			pseudo= u.getPseudo();
+			gender=u.getGender();
 			
-			System.out.println("le nom = "+nom+" prenom= "+prenom+" pseudo= "+pseudo);
 			
 			request.setAttribute("nom",nom);
 			request.setAttribute("prenom",prenom);
+			request.setAttribute("date_naiss",date_naiss);
 			request.setAttribute("pseudo",pseudo);
+			request.setAttribute("gender",gender);
 			
 			
 		} catch (Exception e) {
@@ -61,21 +64,33 @@ public class Profil extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String nom_nouveau, prenom_nouveau, pseudo_nouveau;
+		String nom_nouveau, prenom_nouveau, pseudo_nouveau,date_naiss_nouveau,gender_nouveau;
 		nom_nouveau = request.getParameter("nom");
 		prenom_nouveau = request.getParameter("prenom");
 		pseudo_nouveau = request.getParameter("pseudo");
+		date_naiss_nouveau=request.getParameter("date_naiss");
+		
+		if(request.getParameter("gender").equals("homme") ) {
+			gender_nouveau="homme";
+		}else {
+			gender_nouveau="femme";
+		}
 				
 			try {
-			User u_nouveau=new User();
-			u_nouveau.updateUser_info(mail, nom_nouveau, prenom_nouveau, pseudo_nouveau);
+			
+			User.updateUser_info(mail, nom_nouveau, prenom_nouveau, pseudo_nouveau,date_naiss_nouveau,gender_nouveau);
+			
+			this.getServletContext()
+			.getRequestDispatcher("/recherche.jsp")
+			.forward(request, response);
+			
 			}catch(Exception e) {
 				System.out.println("ERREUUUR MODIF");
 				e.printStackTrace();
 			}
-						
-		
-		doGet(request, response);
+								
+			
+		//doGet(request, response);
 	}
 
 }
