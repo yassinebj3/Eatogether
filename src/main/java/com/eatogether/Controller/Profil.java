@@ -8,79 +8,95 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.eatogether.model.User;
+import com.eatogether.Consumer.IUsers;
+import com.eatogether.Consumer.Implementation.UsersImplementation;
+import com.eatogether.Consumer.Transformation.IUserTransformation;
+import com.eatogether.Consumer.Transformation.Implementation.TransformationUser;
+import com.eatogether.Repository.User;
+import com.eatogether.Repository.RepositoryBean.UtilisateurBean;
 
-/**
- * Servlet implementation class Profil
- */
+
+
 public class Profil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private String mail;
+	private IUsers iUsers = new UsersImplementation();
+	 IUserTransformation iUserTransformation = new TransformationUser();
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Profil() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		
+		String nom, prenom, pseudo,date_naiss,gender;
 		HttpSession session = request.getSession();
-		String mp, mail, nom, prenom, pseudo;
-		mp= (String) session.getAttribute("mp");
+		
+		
 		mail= (String) session.getAttribute("login");
 		
-		User u= new User(mp, mail);
-		User u1= new User();
+		
+		
+		
 		try {
-			u1= u.getUser(mp, mail);
+			UtilisateurBean utilisateurPersistance ;
+			utilisateurPersistance =iUsers.getUserDetails(mail);
+			User u= iUserTransformation.fromUserBeanToUser(utilisateurPersistance);
 			
-			nom= u1.getNom();
-			prenom=u1.getPrenom();
-			pseudo= u1.getPseudo();
+			nom= u.getNom();
+			prenom=u.getPrenom();
+			date_naiss=u.getDatenaissance();
+			pseudo= u.getPseudo();
+			gender=u.getSexe();
+			
 			
 			request.setAttribute("nom",nom);
-			request.setAttribute("presnom",prenom);
+			request.setAttribute("prenom",prenom);
+			request.setAttribute("date_naiss",date_naiss);
 			request.setAttribute("pseudo",pseudo);
+			request.setAttribute("gender",gender);
 			
-			String nom_nouveau = request.getParameter("nom");
-			String prenom_nouveau = request.getParameter("prenom");
-			String pseudo_nouveau = request.getParameter("pseudo");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		this.getServletContext()
+		.getRequestDispatcher("/profil.jsp")
+		.forward(request, response);
+		
+		
+		
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		String nom_nouveau, prenom_nouveau, pseudo_nouveau,date_naiss_nouveau,gender_nouveau;
+		nom_nouveau = request.getParameter("nom");
+		prenom_nouveau = request.getParameter("prenom");
+		pseudo_nouveau = request.getParameter("pseudo");
+		date_naiss_nouveau=request.getParameter("date_naiss");
+		
+		if(request.getParameter("gender").equals("homme") ) {
+			gender_nouveau="homme";
+		}else {
+			gender_nouveau="femme";
+		}
 			
 			try {
-			User u_nouveau=new User(mail, mp, nom, prenom, pseudo);
-			u_nouveau.updateUser_info(mail, nom_nouveau, prenom_nouveau, pseudo_nouveau);
+			
+			iUsers.updateUserInformations(pseudo_nouveau,prenom_nouveau,nom_nouveau,date_naiss_nouveau,gender_nouveau,mail);
+			
+			this.getServletContext()
+			.getRequestDispatcher("/recherche.jsp")
+			.forward(request, response);
+			
 			}catch(Exception e) {
 				System.out.println("ERREUUUR MODIF");
 				e.printStackTrace();
 			}
-			
-			
-			
-		} catch (Exception e) {
-			System.out.println("ERREUUUR 111");
-			e.printStackTrace();
-		}
+								
 		
-		
-		
-		
-		
-		
-		doGet(request, response);
 	}
 
 }

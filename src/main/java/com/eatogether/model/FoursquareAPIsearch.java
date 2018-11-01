@@ -15,62 +15,6 @@ public class FoursquareAPIsearch {
 
 
 
-	
-	/* public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
-		
-		String resultfoursquare ;
-		String venues;
-		resultfoursquare=getvenues("marseille", "", "tacos", "", "");
-		
-		
-		//System.out.println(resultfoursquare);
-		venues=venuedeserialize(resultfoursquare);
-		venueinformation(venues);
-		
-		resultfoursquare = getvenuesdetails(venuedetails[0].getId());
-		venues=venuedeserializestep2(resultfoursquare);
-		infostep2(venues);
-		ContactTT contact  = contactstep2();
-		LikesTT like = likestep2();
-		StatsTT stat = statstep2();
-		MenuTT menu = menustep2();
-		ArrayList<PhotoInfoTT[]> tt = new ArrayList<PhotoInfoTT[]>();
-		ArrayList<String> url = new ArrayList<String>();
-		tt=photo();
-		url = traitementphoto(tt);
-		
-		
-		
-		for(int i = 0 ; i<1;i++) {
-		System.out.println("nom :"+venuedetails[i].getName());
-		System.out.println("id :"+venuedetails[i].getId());
-		LocationVenue venu = getlocationvenue(i);
-		System.out.println("adresse :"+venu.getAddress());
-		System.out.println("city :"+venu.getCity());
-		System.out.println("country :"+venu.getCountry());
-		System.out.println("lieu :"+venu.getNeighborhood());
-		Categorievenue cat = Categorieinformation(i);
-		System.out.println("catégorie :"+cat.name);
-		System.out.println("catégorie id : "+cat.id);
-		System.out.println("catégorie : "+cat.pluralName);
-		System.out.println("Facebook :"+contact.getFacebookName());
-		System.out.println("URL :"+infovenue.getUrl());
-		System.out.println("likes :"+like.getCount());
-	//s	System.out.println("Menu :"+menu.getType());
-		System.out.println("stats :"+stat.getTipCount());
-		for(int j =0 ;j<url.size();j++) {
-			System.out.println("photo :"+url.get(j));
-		}
-	
-		}}
-		
-		
-		
-		// getvenuesdetails("579e332f498e7d497358604c");
-
-	*/
-
 	public static Venuedetails[] getvenues(String near, String radius, String query, String limit, String categoryid)
 			throws JsonParseException, JsonMappingException, IOException {
 
@@ -100,8 +44,8 @@ public class FoursquareAPIsearch {
 				.params(nearParameter, near, radiusParameter, radius, queryParameter, query, limitParameter, limit,
 						categoryidParameter, categoryid)
 
-				.params("client_id", "JKGZ204YBKPLRSNJY1WTMQJ1OAZDRR13IMEAYKE2UHJDVG1X")
-				.params("client_secret", "MT5Z3ZFMWOBDPH03BGJBCO3LF1X5MIQT05MXNVXKP3SJM5A3").params("v", "20180922")
+				.params("client_id", "ST3NIICPJ1YM220A2UK2XK1YYR1MFD02VU50QTV4Q1JFV5T3")
+				.params("client_secret", "HAFRDN13IIZNPFFSIFNKU1PGFSHCCP0ZW51ZDGLEMPCIQX4G").params("v", "20180922")
 				.when().get("https://api.foursquare.com/v2/venues/search");
 		
 		Venuedetails[] venuedetails;
@@ -269,8 +213,8 @@ public class FoursquareAPIsearch {
 	public static InformationTT getvenuesdetails(String id) throws JsonParseException, JsonMappingException, IOException {
 
 
-		Response resp = given().params("client_id", "JKGZ204YBKPLRSNJY1WTMQJ1OAZDRR13IMEAYKE2UHJDVG1X")
-				.params("client_secret", "MT5Z3ZFMWOBDPH03BGJBCO3LF1X5MIQT05MXNVXKP3SJM5A3").params("v", "20180922")
+		Response resp = given().params("client_id", "ST3NIICPJ1YM220A2UK2XK1YYR1MFD02VU50QTV4Q1JFV5T3")
+				.params("client_secret", "HAFRDN13IIZNPFFSIFNKU1PGFSHCCP0ZW51ZDGLEMPCIQX4G").params("v", "20180922")
 				.when().get("https://api.foursquare.com/v2/venues/" + id);
 
 		String venues=venuedeserializestep2(resp.asString());

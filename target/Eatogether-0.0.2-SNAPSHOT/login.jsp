@@ -100,15 +100,149 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      
 }
+
+/*#profile, #logout { display:none; }*/
+
 </style>
 <body>
 
+<!--<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.1&appId=717842305245487&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>-->
+
+<script>
+
+ 
+  function statusChangeCallback(response) {
+  
+    if (response.status === 'connected') {
+    	console.log('Logged in and authenticated');
+   
+    //	 window.location.href="Connexion?acces_token="+ response.authResponse.accessToken;
+    
+    //	setElements(true);
+  
+    } else {
+    	console.log('NOT Logged');
+    //	setElements(false);
+    //	FB.login();
+    	
+   //   document.getElementById('status').innerHTML = 'Please log ' +
+    //    'into this app.';
+    }
+    
+  }
+  
+/*  function setElements(isLoggedIn){
+	  
+	  if(isLoggedIn){
+          document.getElementById('fb_btn').style.display = 'none';
+          document.getElementById('profile').style.display = 'block';
+          document.getElementById('logout').style.display = 'block';
+         
+        } else {
+          document.getElementById('fb_btn').style.display = 'block';
+          document.getElementById('profile').style.display = 'none';
+       document.getElementById('logout').style.display = 'none';
+         
+        }
+	  
+  }*/
+  
+  function test(){	
+	  FB.getLoginStatus(function(response) {
+	     
+		  if (response.status === 'connected') {
+			  window.location.href="Connexion?acces_token="+ response.authResponse.accessToken;}
+		  
+	    });
+	  
+
+  }
+
+ 
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '717842305245487',
+      cookie     : true,    
+      xfbml      : true, 
+      version    : 'v3.1' 
+    });
+
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  
+  
+  function logout(){
+	  FB.logout();
+	/*  FB.logout( function(response){
+		  setElements(false);
+	  });*/
+  }
+
+ 
+/*  function testAPI() {
+   
+    FB.api('/me?fields=id,name,email,birthday,gender', function(response) {
+     if(response && !response.error){
+    	 
+    	 alert("C BONNNNN");
+     }
+   
+     
+     
+    });
+  }*/
+</script>
+
+
+<!--   <div  class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div> 
+-->
+
+<div id="profile">
+
+    <div  class="fb-login-button" scope="public_profile,email,user_birthday,user_gender" data-onlogin="test();" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div> 
+
+</div>
+
+<!-- 
+<a id="logout" href="#" onclick="logout();" > Deconnexion </a> 
+
+ <fb:login-button 
+  id="fb_btn"
+  scope="public_profile,email,user_birthday,user_gender"
+  onlogin="checkLoginState();">
+</fb:login-button> 
+ -->
 
 <div class="login-page">
   <div class="form">
-    <form class="login-form" method="post" action="Connexion">
-      <input type="text" id="pseudo" name="pseudo" placeholder="Pseudo"/>
-      <input type="password" id="password" name="password" placeholder="Mot de Passe"/>
+    <form class="login-form" method="post" action="Connexion" id="cnx">
+      <input type="text" id="pseudo" name="pseudo" placeholder="E-mail" required="true"/>
+      <input type="password" id="password" name="password" placeholder="Mot de Passe" required="true"/>
       <button>login</button>
       <p class="message">Not registered? <a href="inscription.jsp">Create an account</a></p>
     </form>

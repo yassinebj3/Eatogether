@@ -16,7 +16,9 @@ public class TransformationUser implements IUserTransformation {
         userpersistance.setPseudo(user.getPseudo());
         userpersistance.setAdressemail(user.getMail());
         userpersistance.setMotpasse(user.getMotdepasse());
-        userpersistance.setDatedenaissance(new Timestamp(user.getDatenaissance().getTime()));
+        userpersistance.setDatedenaissance(user.getDatenaissance());
+        userpersistance.setSexe(user.getSexe());
+        userpersistance.setImage(user.getImage());
         return userpersistance;
 
     }
@@ -24,12 +26,15 @@ public class TransformationUser implements IUserTransformation {
     @Override
     public User fromUserBeanToUser(UtilisateurBean user) {
         User userBean= new User();
+      //  System.out.println("---------------"+user.getNom());
         userBean.setNom(user.getNom());
         userBean.setPrenom(user.getPrenom());
         userBean.setPseudo(user.getPseudo());
         userBean.setMail(user.getAdressemail());
         userBean.setMotdepasse(user.getMotpasse());
-        userBean.setDatenaissance(new Timestamp(user.getDatedenaissance().getTime()));
+        userBean.setSexe(user.getSexe());
+        userBean.setImage(user.getImage());
+        userBean.setDatenaissance(user.getDatedenaissance());
         return userBean;
     }
 }

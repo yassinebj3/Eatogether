@@ -7,13 +7,11 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Categories")
 public class CategoriesBean {
-
     @Id
     @Column(name = "id")
     @GeneratedValue(generator = "incrementator")
     @GenericGenerator(name = "incrementator",strategy = "increment")
     private int idcategorie;
-
     @Column(name = "nameCategory")
     private String nomCategorie;
 

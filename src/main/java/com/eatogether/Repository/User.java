@@ -10,11 +10,29 @@ public class User {
     private String pseudo;
     private String mail;
     private String motdepasse;
-    private Date datenaissance;
+    private String datenaissance;
+    private String sexe ;
+    private String image ; 
 
 
 
-    public String getNom() {
+    public String getSexe() {
+		return sexe;
+	}
+
+	public void setSexe(String sexe) {
+		this.sexe = sexe;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public String getNom() {
         return nom;
     }
 
@@ -54,11 +72,11 @@ public class User {
         this.motdepasse = motdepasse;
     }
 
-    public Date getDatenaissance() {
+    public String getDatenaissance() {
         return datenaissance;
     }
 
-    public void setDatenaissance(Date datenaissance) {
-        this.datenaissance = datenaissance;
+    public void setDatenaissance(String date_naiss) {
+        this.datenaissance = date_naiss;
     }
 }

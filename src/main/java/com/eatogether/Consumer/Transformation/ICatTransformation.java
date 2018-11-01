@@ -1,7 +1,7 @@
 package com.eatogether.Consumer.Transformation;
 
-import com.eatogether.Repository.RepositoryBean.CategoriesBean;
 import com.eatogether.Repository.Categories;
+import  com.eatogether.Repository.RepositoryBean.*;
 
 import java.util.ArrayList;
 

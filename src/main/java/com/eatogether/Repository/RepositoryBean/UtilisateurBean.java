@@ -3,7 +3,10 @@ package com.eatogether.Repository.RepositoryBean;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "Users")
@@ -30,9 +33,38 @@ public class UtilisateurBean {
     private String adressemail;
 
     @Column(name = "dateofbirth")
-    private Date datedenaissance;
+    private String datedenaissance;
+    
+    @Column(name = "image")
+    private String image ;
+    
+    @Column(name = "sexe")
+    private String sexe ;
 
-    public int getId() {
+    @OneToMany(mappedBy = "idsource", fetch = FetchType.EAGER)
+    private List<RendezVousBean> listesourcerdv ;
+
+    @OneToMany(mappedBy = "idvise" , fetch = FetchType.EAGER)
+    private List<RendezVousBean> listetarget ;
+
+
+    public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public String getSexe() {
+		return sexe;
+	}
+
+	public void setSexe(String sexe) {
+		this.sexe = sexe;
+	}
+
+	public int getId() {
         return id;
     }
 
@@ -80,21 +112,23 @@ public class UtilisateurBean {
         this.adressemail = adressemail;
     }
 
-    public Date getDatedenaissance() {
+    public String getDatedenaissance() {
         return datedenaissance;
     }
 
-    public void setDatedenaissance(Date datedenaissance) {
-        this.datedenaissance = datedenaissance;
+    public void setDatedenaissance(String string) {
+        this.datedenaissance = string;
     }
 
-    public UtilisateurBean(String prenom, String nom, String pseudo, String motpasse, String adressemail, Date datedenaissance) {
+    public UtilisateurBean(String prenom, String nom, String pseudo, String motpasse, String adressemail, String datedenaissance,String sexe , String image) {
         this.prenom = prenom;
         this.nom = nom;
         this.pseudo = pseudo;
         this.motpasse = motpasse;
         this.adressemail = adressemail;
         this.datedenaissance = datedenaissance;
+        this.sexe = sexe ; 
+        this.image = image ; 
     }
 
     public UtilisateurBean(String nom) {
@@ -105,4 +139,19 @@ public class UtilisateurBean {
 
     }
 
+    public List<RendezVousBean> getListesourcerdv() {
+        return listesourcerdv;
+    }
+
+    public void setListesourcerdv(List<RendezVousBean> listesourcerdv) {
+        this.listesourcerdv = listesourcerdv;
+    }
+
+    public List<RendezVousBean> getListetarget() {
+        return listetarget;
+    }
+
+    public void setListetarget(List<RendezVousBean> listetarget) {
+        this.listetarget = listetarget;
+    }
 }

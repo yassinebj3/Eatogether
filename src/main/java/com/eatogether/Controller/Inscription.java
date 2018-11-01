@@ -7,72 +7,80 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import com.eatogether.model.User;
 
-/**
- * Servlet implementation class Test
- */
+import com.eatogether.Consumer.IUsers;
+import com.eatogether.Consumer.Implementation.UsersImplementation;
+import com.eatogether.Consumer.Transformation.IUserTransformation;
+import com.eatogether.Consumer.Transformation.Implementation.TransformationUser;
+import com.eatogether.Repository.User;
+import com.eatogether.Repository.RepositoryBean.UtilisateurBean;
+
+
 public class Inscription extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Inscription() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+    private IUsers iUsers = new UsersImplementation();
+    IUserTransformation iUserTransformation = new TransformationUser();
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	
+   
 public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
         
     }
     
 		public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 			HttpSession session = request.getSession();
-		/*	if ("POST".equalsIgnoreCase(request.getMethod()))
-			{
-				if (request.getParameter("valider") != null
-						|| "POST".equalsIgnoreCase(request.getMethod()))
+		
+			String mp = request.getParameter("password");
+			String mail = request.getParameter("email");
+			String name = request.getParameter("nom");
+			String prename = request.getParameter("prenom");
+			String date_naiss=request.getParameter("date_naiss");
+			String pseudo = request.getParameter("pseudo");
+	
+			String gender;
+			if(request.getParameter("gender").equals("homme") ) {
+				gender="homme";
+			}else {
+				gender="femme";
+			}
+			
+			User user = new User();
+			
+			user.setMotdepasse(mp);
+			user.setMail(mail);
+			user.setImage(null);
+			user.setDatenaissance(date_naiss);
+			user.setNom(name);
+			user.setPrenom(prename);
+			user.setPseudo(pseudo);
+			user.setSexe(gender);
+			
+			
+			UtilisateurBean utilisateurPersistance = iUserTransformation.fromUserToUserBean(user);
+	        
+							
+								
+						try {
+									
+									if(iUsers.getUserexistemail(mail)) {
+								
+										String err="true";
+					                    request.setAttribute(err, true);
+					                    this.getServletContext()
+										.getRequestDispatcher("/inscription.jsp")
+										.forward(request, response);
+													
+									}       
+								} catch (Exception e) {
+									
+									iUsers.persistuser(utilisateurPersistance);
+									session.setAttribute("mail", mail);						
+									
+									this.getServletContext()
+									.getRequestDispatcher("/login.jsp")
+									.forward(request, response);
+								} 
 				
-				{ */ 
-					//String login = request.getParameter("pseudo");
-					String mp = request.getParameter("password");
-					//String date_naissance= request.getParameter("date_naissance");
-					String mail = request.getParameter("email");
-					String name = request.getParameter("nom");
-					String prename = request.getParameter("prenom");
-					String pseudo = request.getParameter("pseudo");
-
-					User P = new User(mail, mp, name, prename,pseudo);
-					try {
-						P.insertUser1(mail, mp, name, prename,pseudo);
-					} catch (Exception e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					User u1 = new User(mail, mp);
-
-					try {
-
-						session.setAttribute("mp", mp);
-						session.setAttribute("mail", mail);
-
-						User User = u1.getUser(mp, mail);
-						request.setAttribute("User", User);
-						this.getServletContext()
-								.getRequestDispatcher("/login.jsp")
-								.forward(request, response);
-
-						// response.sendRedirect("accueil_patient.jsp");
-
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
 				}
 			
 		}

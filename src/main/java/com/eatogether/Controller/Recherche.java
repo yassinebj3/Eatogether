@@ -7,6 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.eatogether.model.FoursquareAPIsearch;
 import com.eatogether.model.InformationTT;
 import com.eatogether.model.PhotoInfoTT;
@@ -19,23 +21,29 @@ public class Recherche extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		FoursquareAPIsearch api = new FoursquareAPIsearch();
-		String id = request.getParameter("id");
-		System.out.println("id"+id);
-		InformationTT info =	api.getvenuesdetails(id);
-		ArrayList<PhotoInfoTT[]> tt = new ArrayList<PhotoInfoTT[]>();
-		ArrayList<String> url = new ArrayList<String>();
-		tt=api.photo(info);
-		url = api.traitementphoto(tt);
-		request.setAttribute("info",  info);
-		request.setAttribute("photo", url); 
+	/*if(request.getParameter("deconnexion")!=null) {
+		if(request.getParameter("deconnexion").equals("true")) {
+			HttpSession session = request.getSession();
+			session.invalidate();
+			this.getServletContext()
+			.getRequestDispatcher("/login.jsp")
+			.forward(request, response);
+		}}
+	else { */
 		
-		String json = api.infovenuetojson(id);
-		response.setContentType("application/json");
-		response.setCharacterEncoding("UTF-8");
-		response.getWriter().write(json);
-
+		String id = request.getParameter("id");
+		String lieu = request.getParameter("lieu");
+		String name = request.getParameter("name");
+		
+		request.setAttribute("id", id);
+		request.setAttribute("name", name);
+		request.setAttribute("lieu", lieu);
+		
+		this.getServletContext()
+		.getRequestDispatcher("/details.jsp")
+		.forward(request, response);
+	
+	//} 
 		   
 		}
 
@@ -45,7 +53,9 @@ public class Recherche extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		
+		HttpSession session = request.getSession();
+		System.out.println(session.getAttribute("login"));
+		System.out.println(session.getAttribute("mp"));
 		String place = request.getParameter("place");
 		String query = request.getParameter("query");
 		String limit = request.getParameter("limit");
@@ -54,8 +64,6 @@ public class Recherche extends HttpServlet {
 		Venuedetails[] result = api.getvenues(place, rayon, query,limit, "");
 
 		request.setAttribute("venue", result);
-		String json = api.infovenuetojson(result[0].getId());
-		System.out.println(json);
 		this.getServletContext()
 		.getRequestDispatcher("/recherche.jsp")
 		.forward(request, response);
