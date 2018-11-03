@@ -24,6 +24,8 @@ public interface IRendezVous {
     public ArrayList<RendezVousBean> ConsulterTousRdvs (UtilisateurBean usercreate);
     public  ArrayList<String> GetListOfFriends(UtilisateurBean usercreate);
 
+	public void AnnulerRdv(int idrdv);
+
 
 
 

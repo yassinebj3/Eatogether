@@ -2,18 +2,7 @@ package com.eatogether.Controller;
 
 import com.eatogether.Buisness.IRendezVousBusiness;
 import com.eatogether.Buisness.Implementation.IRendezVousBusinessImplementation;
-import com.eatogether.Consumer.IRendezVous;
-import com.eatogether.Consumer.IUsers;
-import com.eatogether.Consumer.Implementation.RendezVousImplementation;
-import com.eatogether.Consumer.Implementation.UsersImplementation;
-import com.eatogether.Consumer.Transformation.IRendezVousTransformation;
-import com.eatogether.Consumer.Transformation.IUserTransformation;
-import com.eatogether.Consumer.Transformation.Implementation.TransformationRdv;
-import com.eatogether.Consumer.Transformation.Implementation.TransformationUser;
 import com.eatogether.Repository.RendezVous;
-import com.eatogether.Repository.User;
-import com.eatogether.Repository.RepositoryBean.UtilisateurBean;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -44,9 +33,7 @@ public class RendezVousCreateServlet extends HttpServlet {
     	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
     	HttpSession session = request.getSession();
         String mail = session.getAttribute("login").toString();
-        System.out.println(mail);
         String idRestaurant = request.getParameter("resto-id");
-        System.out.println("idresto"+idRestaurant);
         Date date = null;
 		try {
 			date = formatter.parse(request.getParameter("date"));

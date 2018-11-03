@@ -40,11 +40,11 @@ public class RendezVousImplementationTest {
         user.setPrenom("darinetestj");
         user.setPseudo("coucu");
         user.setMail("theyri.darine01@gmail.com");
-        user.setDatenaissance(d);
+    //    user.setDatenaissance(d);
         user.setMotdepasse("1525425");
         UtilisateurBean utilisateurPersistance = iUserTransformation.fromUserToUserBean(user);
         iUsers.persistuser(utilisateurPersistance);
-       listerdvs  = iRendezVousTransformation.fromListeRendezvousBeanToListeRendezvous(iRendezVous.ConsulterRdv(utilisateurPersistance));
+    //   listerdvs  = iRendezVousTransformation.fromListeRendezvousBeanToListeRendezvous(iRendezVous.ConsulterRdv(utilisateurPersistance));
 
         System.out.println(listerdvs.size());
     }
@@ -98,7 +98,7 @@ public class RendezVousImplementationTest {
         User user = new User();
         user = iUserTransformation.fromUserBeanToUser(iUsers.getUserDetails("theyri.darine01@gmail.com"));
         RendezVous rdv1 = new RendezVous();
-        rdv1.setIdRestraunt(5);
+//        rdv1.setIdRestraunt(5);
         rdv1.setDateRdv(java.util.Calendar.getInstance().getTime());
         rdv1.setNote("tresbon");
         RendezVousBean liste =iRendezVous.createRendezvous(iRendezVousTransformation.fromRendezvousToRendezvousBean(rdv1));
@@ -111,8 +111,8 @@ public class RendezVousImplementationTest {
     {
 
 
-        List<RendezVousBean> liste =iRendezVous.ConsulterRdv(iUsers.getUserDetails("theyri.darine01@gmail.com"));
-        System.out.println(liste.size());
+  //      List<RendezVousBean> liste =iRendezVous.ConsulterRdv(iUsers.getUserDetails("theyri.darine01@gmail.com"));
+   //     System.out.println(liste.size());
 
     }
 }

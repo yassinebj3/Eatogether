@@ -19,6 +19,6 @@ public interface IRendezVousBusiness {
     public ArrayList<String> GetListOfFriends(String user);
 
     public void DeleteRDV(int id);
-
+    public void AnnulerRdv(int idrdv);
 
 }

@@ -25,7 +25,7 @@ class UsersImplementationTest {
         user.setPrenom("darinetestj");
         user.setPseudo("coucu");
         user.setMail("theyri.darine01@gmail.com");
-        user.setDatenaissance(d);
+ //       user.setDatenaissance(d);
         user.setMotdepasse("1525425");
         UtilisateurBean utilisateurPersistance = iTransformation.fromUserToUserBean(user);
         iUsers.persistuser(utilisateurPersistance);

@@ -19,15 +19,6 @@ public class RendezVousByRestaurantServlet extends HttpServlet {
     IRendezVousBusiness iRendezVousBusiness = new IRendezVousBusinessImplementation();
 
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RendezVousByRestaurantServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

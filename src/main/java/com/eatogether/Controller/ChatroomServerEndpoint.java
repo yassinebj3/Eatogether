@@ -1,11 +1,10 @@
 package com.eatogether.Controller;
-import static org.junit.Assume.assumeNoException;
+
 
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 
 import javax.json.Json;
@@ -46,10 +45,6 @@ public void handleOpen(EndpointConfig endpointConfig , Session userSession) {
 @OnMessage
 public void handleMessage(String message, Session userSession) throws IOException {
 	String username = (String)userSession.getUserProperties().get("login");
-	for (Session peer : chatroomUsers) {
-		System.out.println("socket "+peer.getUserProperties().get("login").toString());
-	}
-	
 	if(username==null) {
 		chatroomUsers.stream().forEach(x -> {
 			try {x.getBasicRemote().sendText(buildJsonData(username,message));}
@@ -62,7 +57,6 @@ public void handleMessage(String message, Session userSession) throws IOExceptio
 		boolean exist = false ;
 		boolean exist1 = false ; 
 		for (Session peer : chatroomUsers) {
-			System.out.println(peer.getUserProperties().get("login").toString());
 			if(userSession.getUserProperties().get("destination").toString().equals(peer.getUserProperties().get("login").toString())){
 				 if(peer.getUserProperties().get("destination").toString().equals(username)) {
 					 	exist1 = true ; 
@@ -79,7 +73,6 @@ public void handleMessage(String message, Session userSession) throws IOExceptio
 				chat.inserdiscussion(username, userSession.getUserProperties().get("destination").toString(), message);
 				}
 			} catch (Exception e) {
-		// TODO Auto-generated catch block
 				e.printStackTrace();
 			}}
 		
@@ -90,7 +83,6 @@ public void handleMessage(String message, Session userSession) throws IOExceptio
 				chat.inserdiscussion(username, userSession.getUserProperties().get("destination").toString(), message);
 					}
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}

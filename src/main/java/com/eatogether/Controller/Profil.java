@@ -2,7 +2,6 @@ package com.eatogether.Controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -86,13 +85,12 @@ public class Profil extends HttpServlet {
 			try {
 			
 			iUsers.updateUserInformations(pseudo_nouveau,prenom_nouveau,nom_nouveau,date_naiss_nouveau,gender_nouveau,mail);
-			
+			request.setAttribute("val", "Votre profil a été modifié avec succés");
 			this.getServletContext()
 			.getRequestDispatcher("/recherche.jsp")
 			.forward(request, response);
 			
 			}catch(Exception e) {
-				System.out.println("ERREUUUR MODIF");
 				e.printStackTrace();
 			}
 								

@@ -133,9 +133,34 @@
 <body>
 
 
+<script>
+  
+function check(){
+	var date_input = document.getElementById("date_naiss").value;
+	
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; 
+	var yyyy = today.getFullYear();
+	if(dd<10) { dd = '0'+dd } 
+	if(mm<10) { mm = '0'+mm } 
+
+	today = yyyy + '-' + mm + '-' + dd;	
+	if (today < date_input ) {
+	
+		alert("Date de naissance doit etre inférieur à celle d'aujourd'hui ");		
+		
+	}else{
+		var form = document.getElementById("form1");
+		form.submit();
+	}		 
+}
+
+</script>
+
 <div class="login-page">
   <div class="form">
-    <form class="register-form"  method="post" action="Profil" >
+    <form class="register-form" id="form1" method="post" action="Profil" >
     
     <input id="homme" name="gender" type="radio" value="homme" ${gender=='homme'?'checked':''}  /> Homme <br/>
      <input id="femme" name="gender" type="radio" value="femme" ${gender=='femme'?'checked':''}/> Femme <br/>
@@ -143,10 +168,12 @@
       <input id="pseudo" name="pseudo" type="text" value="${pseudo}" required="true"/>
       <input id="nom" name="nom" type="text" value="${nom}"/>
       <input id="prenom" name="prenom" type="text" value="${prenom}" required="true"/>
-      <input id="date_naiss" name="date_naiss" type="date" value="${date_naiss}" required="true"/>
-      <input id="password" name="password" type="password" placeholder="Mot de passe" />
-      <button>Enregistrer</button>
+      <input id="date_naiss" name="date_naiss" type="date" value="${date_naiss}" required="true"/>    
+   
     </form>
+    
+     <button onclick="check();" >Enregistrer</button>
+     
   </div>
 </div>
 

@@ -1,9 +1,8 @@
 package com.eatogether.Controller;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -44,7 +43,6 @@ public class DetailsServlet extends HttpServlet {
 		String json1 = mapper.writeValueAsString(list);
 		String json = api.infovenuetojson(id);
 		String bothJson = "{\"venue\":"+json+",\"info\":"+json1+"}";
-		System.out.println(bothJson);
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().write(bothJson);

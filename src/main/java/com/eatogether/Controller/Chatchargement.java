@@ -30,15 +30,17 @@ public class Chatchargement extends HttpServlet {
 		session.setAttribute("destination", "az@+01-qc*");
 		String source = session.getAttribute("login").toString();
 		ArrayList<Chat> listechat = new ArrayList<Chat>();
-		PrintWriter printWriter = response.getWriter();
 		ArrayList<String>listeami=iRendezVousBusiness.GetListOfFriends(source);
+		
+		if(listeami.contains(source)) {
+			listeami.remove(source);
+		}
 		
 		String json ="";
 		Chat chat = new Chat();
 		try {
 			listechat=chat.getdicussion(source);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		Map mp = new HashMap<>();
@@ -53,9 +55,6 @@ public class Chatchargement extends HttpServlet {
 		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

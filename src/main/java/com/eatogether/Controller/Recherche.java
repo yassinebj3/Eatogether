@@ -21,15 +21,7 @@ public class Recherche extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	/*if(request.getParameter("deconnexion")!=null) {
-		if(request.getParameter("deconnexion").equals("true")) {
-			HttpSession session = request.getSession();
-			session.invalidate();
-			this.getServletContext()
-			.getRequestDispatcher("/login.jsp")
-			.forward(request, response);
-		}}
-	else { */
+	
 		
 		String id = request.getParameter("id");
 		String lieu = request.getParameter("lieu");
@@ -42,8 +34,6 @@ public class Recherche extends HttpServlet {
 		this.getServletContext()
 		.getRequestDispatcher("/details.jsp")
 		.forward(request, response);
-	
-	//} 
 		   
 		}
 
@@ -61,7 +51,7 @@ public class Recherche extends HttpServlet {
 		String limit = request.getParameter("limit");
 		String rayon = request.getParameter("rayon");
 		FoursquareAPIsearch api = new FoursquareAPIsearch();
-		Venuedetails[] result = api.getvenues(place, rayon, query,limit, "");
+		Venuedetails[] result = api.getvenues(place, rayon, query,limit, "4d4b7105d754a06374d81259");
 
 		request.setAttribute("venue", result);
 		this.getServletContext()

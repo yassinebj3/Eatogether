@@ -94,7 +94,7 @@ public class UsersImplementation implements IUsers {
     	
 
         entityManager.getTransaction().begin();
-    	 Query details =entityManager.createQuery(USER_UPDATE);
+    	 Query details =entityManager.createQuery(USER_PASS);
     	 details.setParameter("adressmail",email);
     	 details.setParameter("password",password);
     	 details.executeUpdate();

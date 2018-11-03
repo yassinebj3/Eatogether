@@ -113,7 +113,7 @@
     <url-pattern>/RendezVousByUserServlet</url-pattern>
   </servlet-mapping>
   
-  
+ 
   <servlet>
     <servlet-name>UpdateRendezVousServlet</servlet-name>
     <servlet-class>com.eatogether.Controller.UpdateRendezVousServlet</servlet-class>
@@ -132,6 +132,38 @@
     <url-pattern>/DeleteRendezVousServlet</url-pattern>
   </servlet-mapping>
 
+
+
+	<servlet>
+    <servlet-name>AnnulerServlet</servlet-name>
+    <servlet-class>com.eatogether.Controller.AnnulerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AnnulerServlet</servlet-name>
+    <url-pattern>/AnnulerServlet</url-pattern>
+  </servlet-mapping>
+  
+  
+   
+  <servlet>
+    <servlet-name>DeconnexionServlet</servlet-name>
+    <servlet-class>com.eatogether.Controller.DeconnexionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeconnexionServlet</servlet-name>
+    <url-pattern>/DeconnexionServlet</url-pattern>
+  </servlet-mapping>
+  
+  
+   <servlet>
+    <servlet-name>Compte</servlet-name>
+    <servlet-class>com.eatogether.Controller.Compte</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Compte</servlet-name>
+    <url-pattern>/Compte</url-pattern>
+  </servlet-mapping>
+  
   
   
 </web-app>

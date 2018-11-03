@@ -1,163 +1,149 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
- 
 <style>
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+label{
 
-.login-page {
-  width: 500px;
-  padding: 20% 0 0;
-  margin: auto;
-}
-.form {
-  position: relative;
-  z-index: 1;
-  background: #FFFFFF;
-  max-width: 500px;
-  margin: 0 auto 100px;
-  padding: 45px;
-  text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
-.form input {
-  font-family: "Roboto", sans-serif;
-  outline: 0;
-  background: #f2f2f2;
-  width: 100%;
-  border: 0;
-  margin: 0 0 15px;
-  padding: 15px;
-  box-sizing: border-box;
-  font-size: 14px;
-}
-.form button {
-  font-family: "Roboto", sans-serif;
-  text-transform: uppercase;
-  outline: 0;
-  background: #4CAF50;
-  width: 100%;
-  border: 0;
-  padding: 15px;
-  color: #FFFFFF;
-  font-size: 14px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
-  cursor: pointer;
-}
-.form button:hover,.form button:active,.form button:focus {
-  background: #43A047;
-}
-.form .message {
-  margin: 15px 0 0;
-  color: #b3b3b3;
-  font-size: 12px;
-}
-.form .message a {
-  color: #4CAF50;
-  text-decoration: none;
-}
-.form .register-form {
- 
-}
-.container {
-  position: relative;
-  z-index: 1;
-  max-width: 300px;
-  margin: 0 auto;
-}
-.container:before, .container:after {
-  content: "";
-  display: block;
-  clear: both;
-}
-.container .info {
-  margin: 50px auto;
-  text-align: center;
-}
-.container .info h1 {
-  margin: 0 0 15px;
-  padding: 0;
-  font-size: 36px;
-  font-weight: 300;
-  color: #1a1a1a;
-}
-.container .info span {
-  color: #4d4d4d;
-  font-size: 12px;
-}
-.container .info span a {
-  color: #000000;
-  text-decoration: none;
-}
-.container .info span .fa {
-  color: #EF3B3A;
-}
-body {
-  background-image: url("img.jpg"); /* fallback for old browsers */
-  background-size: cover ;
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;      
+color: white;
 }
 
-.gender  {
-  display: inline !important;
- 
-  }
-  
-  .logo {
-  position: relative;
-  top: 	150px;
-  z-index: 1;
-  background: #FFFFFF;
-  max-width: 500px;
-  margin: 0 auto 100px;
-  padding: 45px;
-  text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
 </style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
 
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+   integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+   crossorigin=""></script>
+  
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="css/simple-line-icons.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/rendezvous.css">
+   
 </head>
+
+
 
 <body>
 
+<script >
 
-<div class="login-page">
-  <div class="form">
-    <form class="register-form"  method="post" action="Inscription" >
-    
-    
-     <input id="homme" name="gender" type="radio" value="homme" checked /> Homme <br/>
-     <input id="femme" name="gender" type="radio" value="femme" /> Femme <br/>
-               
-      <input id="email" name="email" type="text" placeholder="Email" required="true"/>     
-      <div style="color:red !important" >
-      
-        <c:if test="${err == 'true'}">
-        <c:out value="  L'utilisateur existe d�ja"/>
-      </c:if>
-      
-      </div>
-      
-    
-  <!--      
-  
- <p style="color:red"> L'utilisateur existe d�ja </p>
-<%
+function check(){
+	var date_input = document.getElementById("date_naiss").value;
+	
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; 
+	var yyyy = today.getFullYear();
+	if(dd<10) { dd = '0'+dd } 
+	if(mm<10) { mm = '0'+mm } 
 
-%> -->
+	today = yyyy + '-' + mm + '-' + dd;	
+	if (today < date_input ) {
+	
+		alert("Date de naissance doit etre inférieur à celle d'aujourd'hui ");		
+		
+	}else{
+		var form = document.getElementById("form1");
+		form.submit();
+	}		 
+}
+</script>
+ 
+    <section class="slider d-flex align-items-center">
+        <!-- <img src="images/slider.jpg" class="img-fluid" alt="#"> -->
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-12">
+                    <div class="slider-title_box">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="slider-content_wrap">
+                                	<img class="img-responsive" src="images/logo1.png"><br>
+                                    <h1>Eatogether</h1>
+                                    <h5>Partagez vos repas préférés dans un cadre conviviale..</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <form class="form-wrap mt-4"method="post" action="Inscription">
+                        <br>
+    							
+    							<div class="row d-flex justify-content-center">
+    							<div class="col-md-10">
+    								     <input id="email" name="email" class="btn-group1" type="text" placeholder="Email" required="true"/>  
+    								</div>
+    							</div>     
+      							<div style="color:red !important" >
       
-  	  <input id="pseudo" name="pseudo" type="text" placeholder="Pseudo" required="true"/>
-      <input id="nom" name="nom" type="text" placeholder="Nom"/>
-      <input id="prenom" name="prenom" type="text" placeholder="Pr�nom" required="true"/>
-      <input id="date_naiss" name="date_naiss" type="date" required="true"/>
-      <input id="password" name="password" type="password" placeholder="Mot de passe" required="true"/>
-      <button>create</button>
-      <p class="message">Already registered? <a href="login.jsp">Sign In</a></p>
-    </form>
-  </div>
-</div>
+       							 <c:if test="${err == 'true'}">
+      							  <c:out value="  L'utilisateur existe dèja"/>
+     									 </c:if>
+      
+     									 </div><br>
+     								<div class="row d-flex justify-content-center">
+    							<div class="col-md-10">	 
+   									 <input id="pseudo" name="pseudo" type="text" placeholder="Pseudo" class="btn-group1" required="true"/>
+   									 </div></div><br>
+   									 <div class="row d-flex justify-content-center">
+    							<div class="col-md-10">
+      								<input id="nom" name="nom" type="text" class="btn-group1" placeholder="Nom"/ >
+      								</div></div><br>
+      								<div class="row d-flex justify-content-center">
+    							<div class="col-md-10">
+     								 <input id="prenom" name="prenom" type="text"  class="btn-group1" placeholder="Prénom" required="true"/>
+     								 </div></div><br>
+     								 <div class="row d-flex justify-content-center">
+    							<div class="col-md-10">
+      								<input id="date_naiss" name="date_naiss" class="btn-group1" type="date" required="true"/>
+      								</div></div><br>
+      								
+      								<div class="row d-flex justify-content-center">
+                            <div class="col-md-10">
+                     
+                                    	<input id="homme" class="form-check-input" name="gender" class="btn-group1" type="radio" checked /><label>&nbsp;Homme&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> 
+    								    <input id="femme" class="form-check-input" name="gender" class="btn-group1" type="radio" /><label>&nbsp;Femme&nbsp;</label><br/>
+    			
+    							</div>
+    							</div><br>
+      								
+      								
+      								<div class="row d-flex justify-content-center">
+    							<div class="col-md-10">
+      									<input id="password" name="password" class="btn-group1" type="password" placeholder="Mot de passe" required="true"/>
+      									</div></div><br>
+      									<div class="row d-flex justify-content-center">
+    							<div class="col-md-10">
+    				
+      									 <p class="message"><label>Already registered?</label> <a href="login.jsp">Sign In</a></p>
+                                  
+                                        <button onClick="check()" class="btn-form">Inscription<i class="pe-7s-angle-right"></i></button>
+                                        </div></div>
+                                         </form><br><br><br>
+                                          <img class="img-responsive" src="images/foursquare1.png"><br>
+                                    </div>
+                            </div>
+                       </div>
+                </div>
+        
+    </section>
+
+    
+      
+      
+    
+     
+
+  	 
+ <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/recherche.js"></script>
 </body>
 </html>

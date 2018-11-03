@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 public class AllRendezVousServlet extends HttpServlet {
@@ -31,7 +30,6 @@ public class AllRendezVousServlet extends HttpServlet {
         HttpSession session = request.getSession();
         String login = session.getAttribute("login").toString();
         List<RendezVous> list=  iRendezVousBusiness.GetListRdvS(login);
-        PrintWriter printWriter = response.getWriter();	
 		String json ="";
 		ObjectMapper mapper = new ObjectMapper();
 		json=mapper.writeValueAsString(list);

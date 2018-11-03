@@ -1,10 +1,8 @@
 package com.eatogether.Controller;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,15 +14,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class UserNameSevlet extends HttpServlet{
 
+	private static final long serialVersionUID = 1L;
+
 	protected void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException{
-		System.out.println("je suis la");
 		response.setContentType("text/html");
-		ArrayList a = new ArrayList();
 		ArrayList<Chat> listechat = new ArrayList<Chat>();
-		//String destination = request.getParameter("destination");
-		PrintWriter printWriter = response.getWriter();
 		HttpSession httpSession = request.getSession();
-		System.out.println("test"+httpSession.getAttribute("destination").toString());
 		String json ="";
 		Chat chat = new Chat();
 		try {

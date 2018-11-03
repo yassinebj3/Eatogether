@@ -1,7 +1,6 @@
 package com.eatogether.Controller;
 
 import java.io.IOException;
-import java.sql.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -65,7 +64,7 @@ public void doGet( HttpServletRequest request, HttpServletResponse response ) th
 									if(iUsers.getUserexistemail(mail)) {
 								
 										String err="true";
-					                    request.setAttribute(err, true);
+					                    request.setAttribute(err, "Cet utilisateur existe déja");
 					                    this.getServletContext()
 										.getRequestDispatcher("/inscription.jsp")
 										.forward(request, response);

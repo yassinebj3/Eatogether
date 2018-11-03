@@ -44,18 +44,13 @@ public class FoursquareAPIsearch {
 				.params(nearParameter, near, radiusParameter, radius, queryParameter, query, limitParameter, limit,
 						categoryidParameter, categoryid)
 
-				.params("client_id", "ST3NIICPJ1YM220A2UK2XK1YYR1MFD02VU50QTV4Q1JFV5T3")
-				.params("client_secret", "HAFRDN13IIZNPFFSIFNKU1PGFSHCCP0ZW51ZDGLEMPCIQX4G").params("v", "20180922")
+				.params("client_id", "3HFZPNFFTBJZSGRXT5ZHN24UWCZL0C2VQDLNS2XHTQ0AI5AJ")
+				.params("client_secret", "0KQDGCEKWB0YXXYLEQPPOHZD3UTVTG3YIN3GLLVGBKBIOPKV").params("v", "20180922")
 				.when().get("https://api.foursquare.com/v2/venues/search");
 		
 		Venuedetails[] venuedetails;
-		System.out.println(resp.asString());
 		String deserialize = venuedeserialize(resp.asString());
 		venuedetails=venueinformation(deserialize);
-	/*	for(int i = 0 ; i<venuedetails.length;i++) {
-				venuedetails[i].setCategories(Categorieinformation(i,venuedetails));
-				venuedetails[i].setLocation(getlocationvenue(i,venuedetails));
-			} */
 		return venuedetails;	
 	}
 
@@ -67,9 +62,6 @@ public class FoursquareAPIsearch {
 		String venueinfo;
 		ObjectMapper objectMapper = new ObjectMapper();
 		venueinfo = objectMapper.writeValueAsString(venue.getResponse());
-		
-	//	System.out.println(venueinfo);
-		
 		Venueinfo info = mapper.readValue(venueinfo, Venueinfo.class);
 		String venuedetails = objectMapper.writeValueAsString(info.getVenue());
 
@@ -84,91 +76,8 @@ public class FoursquareAPIsearch {
 	}
 	
 	
-	public static ContactTT contactstep2(InformationTT infovenue) throws IOException {
-		ContactTT cont;
-		String contact ; 
-		ObjectMapper objectMapper = new ObjectMapper();
-		contact = objectMapper.writeValueAsString(infovenue.getContact());
-		
-		
-		ObjectMapper mapper = new ObjectMapper();
-		cont = mapper.readValue(contact, ContactTT.class);
-		return cont;
-	}
 	
-	public static LikesTT likestep2(InformationTT infovenue) throws IOException {
-		LikesTT like;
-		String info ; 
-		ObjectMapper objectMapper = new ObjectMapper();
-		info = objectMapper.writeValueAsString(infovenue.getLikes());
-		
-		
-		ObjectMapper mapper = new ObjectMapper();
-		like = mapper.readValue(info, LikesTT.class);
-		return like;
-	}
-	
-	public static StatsTT statstep2(InformationTT infovenue) throws IOException {
-		StatsTT stats;
-		String info ; 
-		ObjectMapper objectMapper = new ObjectMapper();
-		info = objectMapper.writeValueAsString(infovenue.getStats());
-		
-		
-		ObjectMapper mapper = new ObjectMapper();
-		stats = mapper.readValue(info, StatsTT.class);
-		return stats;
-	}
-	
-	public static MenuTT menustep2(InformationTT infovenue) throws IOException {
-		MenuTT menu;
-		String info ; 
-		ObjectMapper objectMapper = new ObjectMapper();
-		info = objectMapper.writeValueAsString(infovenue.getMenu());
-		
-		
-		ObjectMapper mapper = new ObjectMapper();
-		menu = mapper.readValue(info, MenuTT.class);
-		return menu;
-	}
-	
-	public static ArrayList<PhotoInfoTT[]> photo(InformationTT infovenue) throws IOException {
-		
-		String info ; 
-		ObjectMapper objectMapper = new ObjectMapper();
-		info = objectMapper.writeValueAsString(infovenue.getPhotos());
 
-		ObjectMapper mapper = new ObjectMapper();
-		PhotoTT photo = mapper.readValue(info, PhotoTT.class);
-		
-		
-		info = objectMapper.writeValueAsString(photo.getGroups());
-			
-	//	System.out.println(info);
-		PhotosTT[] photos = mapper.readValue(info, PhotosTT[].class);
-		
-		ArrayList<PhotoInfoTT[]> tt = new ArrayList<PhotoInfoTT[]>();
-		for(int i=0;i<photos.length;i++) {
-		
-		info = objectMapper.writeValueAsString(photos[i].getItems());	
-		PhotoInfoTT[] photoinf = mapper.readValue(info, PhotoInfoTT[].class);
-		tt.add(photoinf);
-		}
-		return tt ;
-	}
-	
-	public static ArrayList<String> traitementphoto(ArrayList<PhotoInfoTT[]> tt) {
-		
-		ArrayList<String> url = new ArrayList<String>();
-		for(int i=0;i<tt.size();i++) {
-			for(int j=0;j<tt.get(i).length;j++) {
-			url.add(""+tt.get(i)[j].getPrefix()+tt.get(i)[j].getHeight()+"x"+tt.get(i)[j].getWidth()+tt.get(i)[j].getSuffix());
-			}
-		}
-		return url;
-	}
-	
-	
 	public static String venuedeserialize(String resp) throws IOException {
 		ObjectMapper mapper = new ObjectMapper();
 		Venue venue = mapper.readValue(resp, Venue.class);
@@ -190,34 +99,19 @@ public class FoursquareAPIsearch {
 		return venuedetails ;
 	}
 
-	public static LocationVenue getlocationvenue(int i,Venuedetails[] venuedetails) throws IOException {
+	
 
-		ObjectMapper mapper = new ObjectMapper();
-		ObjectMapper objectMapper = new ObjectMapper();
-		String venueinfo;
-		venueinfo = objectMapper.writeValueAsString(venuedetails[i].getLocation());
-		LocationVenue location = mapper.readValue(venueinfo, LocationVenue.class);
-
-		return location;
-	}
-
-	public static Categorievenue[] Categorieinformation(int i,Venuedetails[] venuedetails) throws IOException {
-		ObjectMapper mapper = new ObjectMapper();
-		ObjectMapper objectMapper = new ObjectMapper();
-		String venueinfo;
-		venueinfo = objectMapper.writeValueAsString(venuedetails[0].getCategories());
-		Categorievenue[] catvenu = mapper.readValue(venueinfo, Categorievenue[].class);
-		return catvenu;
-	}
 
 	public static InformationTT getvenuesdetails(String id) throws JsonParseException, JsonMappingException, IOException {
 
-
-		Response resp = given().params("client_id", "ST3NIICPJ1YM220A2UK2XK1YYR1MFD02VU50QTV4Q1JFV5T3")
-				.params("client_secret", "HAFRDN13IIZNPFFSIFNKU1PGFSHCCP0ZW51ZDGLEMPCIQX4G").params("v", "20180922")
-				.when().get("https://api.foursquare.com/v2/venues/" + id);
-
+		System.out.println("id"+id);
+		Response resp = given().params("client_id", "3HFZPNFFTBJZSGRXT5ZHN24UWCZL0C2VQDLNS2XHTQ0AI5AJ")
+				.params("client_secret", "0KQDGCEKWB0YXXYLEQPPOHZD3UTVTG3YIN3GLLVGBKBIOPKV").params("v", "20180922")
+				.when().get("https://api.foursquare.com/v2/venues/"+id);
+		
+		System.out.println(resp.asString());
 		String venues=venuedeserializestep2(resp.asString());
+		
 		InformationTT infovenue =	infostep2(venues);
 
 		return infovenue ;

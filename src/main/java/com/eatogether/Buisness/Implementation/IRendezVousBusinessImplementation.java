@@ -44,6 +44,10 @@ public class IRendezVousBusinessImplementation implements IRendezVousBusiness {
     public RendezVous updateRDV(int rendezVous, Date date) {
         return iRendezVousTransformation.fromRendezvousBeanToRendezvous(iRendezVous.UpdateDateRdv(rendezVous,date));
     }
+    
+    public void AnnulerRdv(int idrdv) {
+    	iRendezVous.AnnulerRdv(idrdv);
+    }
 
     @Override
     public List<RendezVous> GetListRdvUser(String user) {
