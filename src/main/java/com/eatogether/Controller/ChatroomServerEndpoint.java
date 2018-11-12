@@ -10,6 +10,7 @@ import java.util.Set;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonWriter;
+import javax.websocket.Endpoint;
 import javax.websocket.EndpointConfig;
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
@@ -21,12 +22,11 @@ import javax.websocket.server.ServerEndpoint;
 import com.eatogether.model.Chat;
 
 @ServerEndpoint(value="/chatroomServerEndpoint", configurator=ChatroomServerConfigurator.class)
-public class ChatroomServerEndpoint {
+public class ChatroomServerEndpoint extends Endpoint {
 static Set<Session> chatroomUsers = Collections.synchronizedSet(new HashSet<Session>());
 
 
-@OnOpen
-public void handleOpen(EndpointConfig endpointConfig , Session userSession) {
+public void onOpen(Session userSession , EndpointConfig endpointConfig) {
 	userSession.getUserProperties().put("login", endpointConfig.getUserProperties().get("login"));
 	userSession.getUserProperties().put("destination", endpointConfig.getUserProperties().get("destination"));
 	boolean exist = false ; 
@@ -40,6 +40,7 @@ public void handleOpen(EndpointConfig endpointConfig , Session userSession) {
 	if(exist==false) {
 	chatroomUsers.add(userSession);
 	}
+	
 }
 
 @OnMessage
@@ -103,5 +104,9 @@ private String buildJsonData(String username, String message) {
 
 @OnError
 public void onError(Session session, Throwable thr) {}
+
+
+
+
 
 }
