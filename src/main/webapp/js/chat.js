@@ -5,18 +5,22 @@ $(document).ready(function(){
 	$("#send").prop('disabled',true);
 	    $.ajax({
 	       url : 'Chatchargement',
-	       type : 'GET', // Le type de la requête HTTP, ici devenu POST
+	       type : 'GET', 
 	       dataType : 'json',
 	    	     success : function(data){
-	    	    	 $("#websocket").append("<script>websocket = new WebSocket(\"ws://localhost:8080/Eatogether/chatroomServerEndpoint\");<\/script>");
+	    	    	 $("#websocket").append("<script>websocket = new WebSocket(\"wss://"+window.location.host+"/chatroomServerEndpoint\");<\/script>");
 	    	    	 websocketonmessage1();
 	    	    	 $.each(data.Chat, function(i, obj) {
-	    	    		$(".inbox_chat").append("<div class=\"chat_list\" id=\"chat"+obj.source+"\"><div class=\"chat_people\"><div class=\"chat_img\"> <img src=\""+photo+"\" alt=\"sunil\"> </div><div class=\"chat_ib\" id=\"chat_chat\"><h5>"+obj.source+"<span class=\"chat_date\">Dec 25</span></h5><a id=\"lien"+i+"\" class=\"lien\"><p id=\""+obj.source+"\">"+obj.message+"</p><input id=\"hiden"+i+"\" name=\"hiden\" type=\"hidden\" value="+obj.source+"></input></a></div></div></div>");
+	    	    		 $.each(data.Ami,function(j,obj2){
+	    	    			 if(obj.source==obj2.adressemail){
+	    	    			 $(".inbox_chat").append("<div class=\"chat_list\" id=\"chat"+obj.source+"\"><div class=\"chat_people\"><div class=\"chat_img\"> <img id=\"imglien"+i+"\" src=\""+obj2.image+"\" alt=\"sunil\"> </div><div class=\"chat_ib\" id=\"chat_chat\"><h5>"+obj.source+"</h5><a id=\"lien"+i+"\" class=\"lien\"><p id=\""+obj.source+"\">"+obj.message+"</p><input id=\"hiden"+i+"\" name=\"hiden\" type=\"hidden\" value="+obj.source+"></input></a></div></div></div>");
+	    	    			 }
+	    	    		 });
 	    	   	    	compteurid++ ; 
 	    	    	 }); 
 	    	    	 
 	    	    	 $.each(data.Ami, function(i, obj1) {
-		    	    		$(".list-group").append("<li class=\"list-group-item\"><button type=\"button\" class=\"btn btn-primary btn-block\" id=\"ami\" value=\""+obj1+"\">"+obj1+"</button></li>");
+		    	    		$(".list-group").append("<li class=\"list-group-item\"><button type=\"button\" class=\"btn btn-light \" id=\"ami\" value=\""+obj1.adressemail+"\"><img id=\"img"+obj1.adressemail+"\" src=\""+obj1.image+"\"class=\"img-fluid\" alt=\"Responsive image\" ></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+obj1.adressemail+"</button></li>");
 		    	    	 }); 
 
 	    	    	 },
@@ -40,7 +44,9 @@ $(document).ready(function(){
 		$("#send").prop('disabled',false);
 		$("#msg_history").empty();
 		$("#messageText").val("");
-		destination = $("#ami").attr('value');
+		destination = $(this).attr('value');
+		var photo1 = $(this).find("img").attr("src");
+	
 		 $.ajax({
 			 
 		      url : 'ChatAffiche',
@@ -49,7 +55,7 @@ $(document).ready(function(){
 		      dataType : 'json',
 		   	     success : function(data){
 		   	    	$("#websocket").empty();
-		   	    	$("#websocket").append("<script>websocket = new WebSocket(\"ws://localhost:8080/Eatogether/chatroomServerEndpoint\");<\/script>");
+		   	    	$("#websocket").append("<script>websocket = new WebSocket(\"wss://"+window.location.host+"/chatroomServerEndpoint\");<\/script>");
 		   	    	websocketonmessage();
 		   	    	test = true ;
 		   	    	try{
@@ -64,14 +70,14 @@ $(document).ready(function(){
 		   	    	
 		   	    	$.each(data, function(i, obj) {
 		   	    		
-		   	    		 if((obj.destination=='${sessionScope.login}')&&(obj.source!='${sessionScope.login}')){
-		   	    			 $("#msg_history").append("<div class=\"incoming_msg\"><div class=\"incoming_msg_img\"> <img src=\""+photo+"\" alt=\"sunil\"> </div><div class=\"received_msg\"><div class=\"received_withd_msg\"><p>"+obj.message+"</p><span class=\"time_date\"> 11:01 AM    |    June 9</span></div></div>");	
-		   	    			 console.log("salut");
+		   	    		 if((obj.destination==login)&&(obj.source!=login)){
+		   	    			 $("#msg_history").append("<div class=\"incoming_msg\"><div class=\"incoming_msg_img\"> <img src=\""+photo1+"\" alt=\"sunil\"> </div><div class=\"received_msg\"><div class=\"received_withd_msg\"><p>"+obj.message+"</p></div></div>");	
+		   	    			
 		   	    		 }
 		   	    		 
-		   	    		 else if ((obj.destination!='${sessionScope.login}')&&(obj.source=='${sessionScope.login}')){
-		   	    			$("#msg_history").append("<div class=\"incoming_msg\"><div class=\"outgoing_msg\"><div class=\"sent_msg\"><p>"+obj.message+"</p><span class=\"time_date\"> 11:01 AM    |    June 9</span></div></div></div>");
-		   	    			console.log("cv");
+		   	    		 else if ((obj.destination!=login)&&(obj.source==login)){
+		   	    			$("#msg_history").append("<div class=\"incoming_msg\"><div class=\"outgoing_msg\"><div class=\"sent_msg\"><p>"+obj.message+"</p></div></div></div>");
+		   	    		
 		   	    		 }
 		   	    		
 		   	    	 });
@@ -101,6 +107,7 @@ $(document).ready(function(){
 		$("#messageText").val("");
 	 var id = $(this).attr("id");
 	 destination = $("#"+id).find("input").val();
+	 var photo1 = $("#img"+id).attr("src");
 	 $.ajax({
 		 
 	      url : 'ChatAffiche',
@@ -109,7 +116,7 @@ $(document).ready(function(){
 	      dataType : 'json',
 	   	     success : function(data){
 	   	    	$("#websocket").empty();
-	   	    	$("#websocket").append("<script>websocket = new WebSocket(\"ws://localhost:8080/Eatogether/chatroomServerEndpoint\");<\/script>");
+	   	    	$("#websocket").append("<script>websocket = new WebSocket(\"wss://"+window.location.host+"/chatroomServerEndpoint\");<\/script>");
 	   	    	websocketonmessage();
 	   	    	test = true ;
 	   	    	if(data[0].number>=3){
@@ -121,12 +128,12 @@ $(document).ready(function(){
 	   	    	
 	   	    	$.each(data, function(i, obj) {
 	   	    		
-	   	    		 if((obj.destination=='${sessionScope.login}')&&(obj.source!='${sessionScope.login}')){
-	   	    			 $("#msg_history").append("<div class=\"incoming_msg\"><div class=\"incoming_msg_img\"> <img src=\""+photo+"\" alt=\"sunil\"> </div><div class=\"received_msg\"><div class=\"received_withd_msg\"><p>"+obj.message+"</p><span class=\"time_date\"> 11:01 AM    |    June 9</span></div></div>");	 
+	   	    		 if((obj.destination==login)&&(obj.source!=login)){
+	   	    			 $("#msg_history").append("<div class=\"incoming_msg\"><div class=\"incoming_msg_img\"> <img src=\""+photo1+"\" alt=\"sunil\"> </div><div class=\"received_msg\"><div class=\"received_withd_msg\"><p>"+obj.message+"</p></div></div>");	 
 	   	    		 }
 	   	    		 
-	   	    		 else if ((obj.destination!='${sessionScope.login}')&&(obj.source=='${sessionScope.login}')){
-	   	    			$("#msg_history").append("<div class=\"incoming_msg\"><div class=\"outgoing_msg\"><div class=\"sent_msg\"><p>"+obj.message+"</p><span class=\"time_date\"> 11:01 AM    |    June 9</span></div></div></div>");
+	   	    		 else if ((obj.destination!=login)&&(obj.source==login)){
+	   	    			$("#msg_history").append("<div class=\"incoming_msg\"><div class=\"outgoing_msg\"><div class=\"sent_msg\"><p>"+obj.message+"</p></div></div></div>");
 
 	   	    		 }
 	   	    		
@@ -160,18 +167,20 @@ function websocketonmessage(){
 	   			console.log(source);
 	   			console.log(destination);
 	   			if(source==destination){
-	   			document.getElementById('msg_history').innerHTML += "<div class=\"incoming_msg\"><div class=\"incoming_msg_img\"> <img src=\""+photo+"\" alt=\"sunil\"> </div><div class=\"received_msg\"><div class=\"received_withd_msg\"><p>"+jsonData.message+"</p><span class=\"time_date\"> 11:01 AM    |    June 9</span></div></div>";
+	   			var photo1 = $("img[id='img"+jsonData.username+"']").attr("src");
+	   			document.getElementById('msg_history').innerHTML += "<div class=\"incoming_msg\"><div class=\"incoming_msg_img\"> <img src=\""+photo1+"\" alt=\"sunil\"> </div><div class=\"received_msg\"><div class=\"received_withd_msg\"><p>"+jsonData.message+"</p></div></div>";
 	   			
 	   
 	   				if(document.getElementById(jsonData.username)){
 	   					
 	   					
-	   					$('#'+jsonData.username).replaceWith("<b><p id=\""+jsonData.username+"\">"+jsonData.message+"</p></b>");
+	   					$("p[id='"+jsonData.username+"']").replaceWith("<b><p id=\""+jsonData.username+"\">"+jsonData.message+"</p></b>");
 	   					
 	   				}
 	   				else{
 	   					compteurid++;
-	   			document.getElementById('inbox_chat').innerHTML += "<div class=\"chat_list\"><div class=\"chat_people\"><div class=\"chat_img\"> <img src=\""+photo+"\" alt=\"sunil\"> </div><div class=\"chat_ib\" id=\"chat_chat\"><h5>"+jsonData.username+"<span class=\"chat_date\">Dec 25</span></h5><a id=\"lien"+compteurid+"\" class=\"lien\"><p id=\""+jsonData.username+"\">"+jsonData.message+"</p><input id=\"hiden"+compteurid+"\" name=\"hiden\" type=\"hidden\" value="+jsonData.username+"></input></div></a></div></div>";
+	   					var photo1 = $("img[id='img"+jsonData.username+"']").attr("src");
+	   			document.getElementById('inbox_chat').innerHTML += "<div class=\"chat_list\"><div class=\"chat_people\"><div class=\"chat_img\"> <img id=\"imglien"+compteurid+"\" src=\""+photo1+"\" alt=\"sunil\"> </div><div class=\"chat_ib\" id=\"chat_chat\"><h5>"+jsonData.username+"</h5><a id=\"lien"+compteurid+"\" class=\"lien\"><p id=\""+jsonData.username+"\">"+jsonData.message+"</p><input id=\"hiden"+compteurid+"\" name=\"hiden\" type=\"hidden\" value="+jsonData.username+"></input></div></a></div></div>";
 	   				}
 	   			  compteur++;
 	   		 }
@@ -185,13 +194,14 @@ function websocketonmessage1(){
 	   			if(source!=destination){
 		if(document.getElementById(jsonData.username)){
 	   					
-			$('#'+jsonData.username).replaceWith("<b><p id=\""+jsonData.username+"\">"+jsonData.message+"</p></b>");
+			$("p[id='"+jsonData.username+"']").replaceWith("<b><p id=\""+jsonData.username+"\">"+jsonData.message+"</p></b>");
 			
 	   					
 	   				}
 	   				else{
+	   					var photo1 = $("img[id='img"+jsonData.username+"']").attr("src");
 	   					compteurid++;
-	   					document.getElementById('inbox_chat').innerHTML += "<div class=\"chat_list\"><div class=\"chat_people\"><div class=\"chat_img\"> <img src=\""+photo+"\" alt=\"sunil\"> </div><div class=\"chat_ib\" id=\"chat_chat\"><h5>"+jsonData.username+"<span class=\"chat_date\">Dec 25</span></h5><a id=\"lien"+compteurid+"\" class=\"lien\"><p id=\""+jsonData.username+"\">"+jsonData.message+"</p><input id=\"hiden"+compteurid+"\" name=\"hiden\" type=\"hidden\" value="+jsonData.username+"></input></div></a></div></div>";
+	   					document.getElementById('inbox_chat').innerHTML += "<div class=\"chat_list\"><div class=\"chat_people\"><div class=\"chat_img\"> <img id=\"imglien"+compteurid+"\" src=\""+photo1+"\" alt=\"sunil\"> </div><div class=\"chat_ib\" id=\"chat_chat\"><h5>"+jsonData.username+"<span class=\"chat_date\">Dec 25</span></h5><a id=\"lien"+compteurid+"\" class=\"lien\"><p id=\""+jsonData.username+"\">"+jsonData.message+"</p><input id=\"hiden"+compteurid+"\" name=\"hiden\" type=\"hidden\" value="+jsonData.username+"></input></div></a></div></div>";
 	   			}
 	   	}}}}
 
@@ -199,8 +209,12 @@ function websocketonmessage1(){
 $(document).ready(function(){
 	
 	$("#send").on("click",function(){
+			if(messageText.value.length === 0){
+				alert("Veuillez écrire un message !");
+			}
+			else{
    	 		var valeur = document.getElementById('messageText').value;
-   	 		document.getElementById('msg_history').innerHTML += "<div class=\"incoming_msg\"><div class=\"outgoing_msg\"><div class=\"sent_msg\"><p>"+valeur+"</p><span class=\"time_date\"> 11:01 AM    |    June 9</span></div></div></div>";
+   	 		document.getElementById('msg_history').innerHTML += "<div class=\"incoming_msg\"><div class=\"outgoing_msg\"><div class=\"sent_msg\"><p>"+valeur+"</p></div></div></div>";
    	 		var valeur = messageText.value;
    	 		messageText.value ="";
   	  	websocket.send(valeur);
@@ -231,7 +245,9 @@ $(document).ready(function(){
  	    	       }
 
  	    });
+			}
    	 	});
+	
 });
 
 $(document).ready(function(){
@@ -243,7 +259,7 @@ $(document).ready(function(){
 	       data : 'destination='+destination, // On fait passer nos variables, exactement comme en GET, au script more_com.php
 	       dataType : 'json',
 	    	     success : function(data){
-	    	    	$(".msg_history").append("<div class=\"incoming_msg\"><div class=\"outgoing_msg\"><div class=\"sent_msg\"><p>"+data[0].message+"</p><span class=\"time_date\"> 11:01 AM    |    June 9</span></div></div></div>");
+	    	    	$(".msg_history").append("<div class=\"incoming_msg\"><div class=\"outgoing_msg\"><div class=\"sent_msg\"><p>"+data[0].message+"</p></div></div></div>");
 	    	       },
 
 	    	       error : function(resultat, statut, erreur){

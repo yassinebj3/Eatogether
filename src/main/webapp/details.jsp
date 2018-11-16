@@ -1,10 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:if test="${sessionScope.login == null}">
+    <jsp:forward page = "login.jsp" />
+</c:if>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<style>
+#msg{
+
+color: red;
+
+}
+</style>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,7 +48,12 @@
 </head>
 
 <body>
-  <c:import url="header1.jsp"></c:import>
+  <c:if test="${sessionScope.facebook == true}">
+    <c:import url="headerfb1.jsp"></c:import>
+</c:if>
+ <c:if test="${sessionScope.facebook == null}">
+ 	<c:import url="header1.jsp"></c:import>
+ </c:if>
    
     <section class="reserve-block">
         <div class="container">
@@ -76,7 +90,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form method="post" action="RendezVousCreateServlet">
+      <form method="post" action="RendezVousCreateServlet" onsubmit="return check()">
       <div class="modal-body">
         
           <div class="form-group">
@@ -85,6 +99,7 @@
           </div>
       </div>
       <div class="modal-footer">
+     	 <div id="erreur"></div>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-danger">Confirmer la Création</button>    
       </div>
@@ -114,7 +129,9 @@
                     <div class="booking-checkbox_wrap mt-4" id="annonces">
                         <h5>Liste des rendez-vous</h5>
                         <hr>
-                       
+                       <div class="row" id="row1">
+                   
+             	   </div>
                     </div>
                 </div>
                 
@@ -147,6 +164,30 @@
             </div>
         </div>
     </section>
+    <script>
+    function check(){
+	var date_input = document.getElementById("date").value;
+	
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; 
+	var yyyy = today.getFullYear();
+	if(dd<10) { dd = '0'+dd } 
+	if(mm<10) { mm = '0'+mm } 
+
+	today = yyyy + '-' + mm + '-' + dd;	
+	
+	if (today > date_input ) {
+		$("#erreur").empty();
+		$("#erreur").append("<div id=\"msg\"><b>Veuillez choisir une date valide !</b></div>");	
+		return false ;
+	}
+	else{
+		return true ;
+	}		 
+}
+    </script>
+    
     <!--//END BOOKING DETAILS -->
     <!--============================= FOOTER =============================-->
     <c:import url="footer.jsp"></c:import>

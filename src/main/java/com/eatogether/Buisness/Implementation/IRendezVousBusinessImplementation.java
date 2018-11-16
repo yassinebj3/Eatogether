@@ -16,6 +16,7 @@ import com.eatogether.Repository.User;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class IRendezVousBusinessImplementation implements IRendezVousBusiness {
@@ -68,7 +69,7 @@ public class IRendezVousBusinessImplementation implements IRendezVousBusiness {
     }
 
     @Override
-    public ArrayList<String> GetListOfFriends(String user) {
+    public HashMap<String,String> GetListOfFriends(String user) {
         return iRendezVous.GetListOfFriends(iUsers.getUserDetails(user));
 
     }

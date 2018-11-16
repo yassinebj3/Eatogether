@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div class="nav-menu">
         <div class="bg transition">
             <div class="container-fluid fixed">
@@ -13,10 +16,10 @@
                                 <ul class="navbar-nav">
                                     <li class="nav-item dropdown">
                                         <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     					<img src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-1/p40x40/38528653_1819079501515690_2328069988956504064_n.jpg?_nc_cat=101&oh=d5e99a20f3d7c2b46e5898f890e64f90&oe=5C45E7A0" class="rounded-circle" > <c:out value="${sessionScope.login}"></c:out></a>
+                     					<img src="${picture_user}" class="rounded-circle img-responsive" > <c:out value="${sessionScope.login}"></c:out></a>
                                          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <a class="dropdown-item" href="Profil">Gérer Profil</a>
-                                            <a class="dropdown-item" href="compte.jsp">Gérer Compte</a>
+                                            <a class="dropdown-item" href="Profil">GÃ©rer Profil</a>
+                                            <a class="dropdown-item" href="compte.jsp">GÃ©rer Compte</a>
                                                                                   </div>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -51,7 +54,7 @@
                                     </li>
                                    
                                     
-                                    <li><a href="DeconnexionServlet?deconnexion=true" class="btn btn-outline-light top-btn"><span class="ti-plus"></span> Déconnexion</a></li>
+                                    <li><a href="DeconnexionServlet?deconnexion=true" class="btn btn-outline-light top-btn"><span class="ti-plus"></span> DÃ©connexion</a></li>
                                 </ul>
                             </div>
                         </nav>
@@ -72,7 +75,7 @@
                                 <div class="slider-content_wrap">
                                 	<img class="img-responsive" src="images/logo1.png"><br>
                                     <h1>Eatogether</h1>
-                                    <h5>Partagez vos repas préférés dans un cadre conviviale..</h5>
+                                    <h5>Partagez vos repas prÃ©fÃ©rÃ©s dans un cadre convivial..</h5>
                                 </div>
                             </div>
                         </div>

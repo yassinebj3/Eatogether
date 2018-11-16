@@ -33,7 +33,6 @@ public class AllRendezVousServlet extends HttpServlet {
 		String json ="";
 		ObjectMapper mapper = new ObjectMapper();
 		json=mapper.writeValueAsString(list);
-		System.out.println("aaoki"+json);
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().write(json);

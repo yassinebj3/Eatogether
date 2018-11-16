@@ -10,6 +10,12 @@ label{
 color: white;
 }
 
+#msg{
+
+color: white;
+
+}
+
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
@@ -46,13 +52,14 @@ function check(){
 	if(mm<10) { mm = '0'+mm } 
 
 	today = yyyy + '-' + mm + '-' + dd;	
-	if (today < date_input ) {
 	
-		alert("Date de naissance doit etre inférieur à celle d'aujourd'hui ");		
-		
-	}else{
-		var form = document.getElementById("form1");
-		form.submit();
+	if (today < date_input ) {
+		$("#erreur").empty();
+		$("#erreur").append("<div id=\"msg\"><b>Date de naissance incorrect</b></div>");	
+		return false ;
+	}
+	else{
+		return true ;
 	}		 
 }
 </script>
@@ -72,12 +79,12 @@ function check(){
                                 </div>
                             </div>
                         </div>
-                        <form class="form-wrap mt-4"method="post" action="Inscription">
+                        <form class="form-wrap mt-4"method="post" action="Inscription" onsubmit="return check()">
                         <br>
     							
     							<div class="row d-flex justify-content-center">
     							<div class="col-md-10">
-    								     <input id="email" name="email" class="btn-group1" type="text" placeholder="Email" required="true"/>  
+    								     <input id="email" name="email" class="btn-group1" type="email" placeholder="Email" required="true"/>  
     								</div>
     							</div>     
       							<div style="color:red !important" >
@@ -102,6 +109,7 @@ function check(){
      								 <div class="row d-flex justify-content-center">
     							<div class="col-md-10">
       								<input id="date_naiss" name="date_naiss" class="btn-group1" type="date" required="true"/>
+      								<div id="erreur"></div>
       								</div></div><br>
       								
       								<div class="row d-flex justify-content-center">
@@ -123,9 +131,10 @@ function check(){
     				
       									 <p class="message"><label>Already registered?</label> <a href="login.jsp">Sign In</a></p>
                                   
-                                        <button onClick="check()" class="btn-form">Inscription<i class="pe-7s-angle-right"></i></button>
+                                        <input type="submit" class="btn-form" value="Inscription"><i class="pe-7s-angle-right"></i></button>
                                         </div></div>
                                          </form><br><br><br>
+                                         <a href="privacy.jsp">Application Privacy Statement</a><br>
                                           <img class="img-responsive" src="images/foursquare1.png"><br>
                                     </div>
                             </div>

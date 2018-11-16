@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.jasypt.util.password.StrongPasswordEncryptor;
+
 import com.eatogether.Consumer.IUsers;
 import com.eatogether.Consumer.Implementation.UsersImplementation;
 import com.eatogether.Consumer.Transformation.IUserTransformation;
@@ -41,7 +43,9 @@ public class Compte extends HttpServlet {
 				String pass_nv2= (String) request.getParameter("password_nouveau2");
 				
 				if(pass_nv.equals(pass_nv2)) {
-					iUsers.updateUserpassword(mail, pass_nv);	
+					StrongPasswordEncryptor passwordEncryptor = new StrongPasswordEncryptor();
+					String encryptedPassword = passwordEncryptor.encryptPassword(pass_nv);
+					iUsers.updateUserpassword(mail, encryptedPassword);	
 					request.setAttribute("err", "LE MOT DE PASSE A ETE CHANGE");
 					this.getServletContext()
 					.getRequestDispatcher("/compte.jsp")

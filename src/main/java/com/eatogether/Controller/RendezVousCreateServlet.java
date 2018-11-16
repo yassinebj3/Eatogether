@@ -30,18 +30,14 @@ public class RendezVousCreateServlet extends HttpServlet {
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    	
     	HttpSession session = request.getSession();
         String mail = session.getAttribute("login").toString();
         String idRestaurant = request.getParameter("resto-id");
-        Date date = null;
-		try {
-			date = formatter.parse(request.getParameter("date"));
-			System.out.println(request.getParameter("date").toString());
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+       
+	
+		String	date = request.getParameter("date");
+		
 		
         String note =request.getParameter("message-text");
         RendezVous rendezVous = new RendezVous();

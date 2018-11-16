@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import com.eatogether.Buisness.IRendezVousBusiness;
 import com.eatogether.Buisness.Implementation.IRendezVousBusinessImplementation;
+import com.eatogether.Repository.RepositoryBean.UtilisateurBean;
 import com.eatogether.model.Chat;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -30,12 +31,24 @@ public class Chatchargement extends HttpServlet {
 		session.setAttribute("destination", "az@+01-qc*");
 		String source = session.getAttribute("login").toString();
 		ArrayList<Chat> listechat = new ArrayList<Chat>();
-		ArrayList<String>listeami=iRendezVousBusiness.GetListOfFriends(source);
+		HashMap<String,String>listeami=iRendezVousBusiness.GetListOfFriends(source);
 		
-		if(listeami.contains(source)) {
+		if(listeami.containsKey(source)) {
+			System.out.println("laa");
 			listeami.remove(source);
 		}
+		ArrayList<UtilisateurBean> email = new ArrayList<UtilisateurBean>();
 		
+		
+		for (Map.Entry<String, String> entry : listeami.entrySet())
+		{
+			UtilisateurBean a = new UtilisateurBean();
+			a.setAdressemail(entry.getKey());
+			a.setImage(entry.getValue());
+		    email.add(a);
+		 
+		}
+
 		String json ="";
 		Chat chat = new Chat();
 		try {
@@ -44,7 +57,8 @@ public class Chatchargement extends HttpServlet {
 			e.printStackTrace();
 		}
 		Map mp = new HashMap<>();
-		mp.put("Ami", listeami);
+		
+		mp.put("Ami", email);
 		mp.put("Chat", listechat);
 		ObjectMapper mapper = new ObjectMapper();
 		json=mapper.writeValueAsString(mp);

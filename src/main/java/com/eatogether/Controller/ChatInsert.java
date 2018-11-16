@@ -16,12 +16,11 @@ public class ChatInsert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int number = 0 ; 
 		HttpSession session = request.getSession();
 		String source = session.getAttribute("login").toString();
 		String destination = request.getParameter("destination");
-	
 		
 		
 		Chat chat = new Chat();
@@ -39,7 +38,7 @@ public class ChatInsert extends HttpServlet {
 		
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	}
 

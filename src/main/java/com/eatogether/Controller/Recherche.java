@@ -49,7 +49,7 @@ public class Recherche extends HttpServlet {
 		String place = request.getParameter("place");
 		String query = request.getParameter("query");
 		String limit = request.getParameter("limit");
-		String rayon = request.getParameter("rayon");
+		String rayon = request.getParameter("rayon")+"000";
 		FoursquareAPIsearch api = new FoursquareAPIsearch();
 		Venuedetails[] result = api.getvenues(place, rayon, query,limit, "4d4b7105d754a06374d81259");
 

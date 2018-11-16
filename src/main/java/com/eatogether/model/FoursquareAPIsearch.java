@@ -48,6 +48,8 @@ public class FoursquareAPIsearch {
 				.params("client_secret", "0KQDGCEKWB0YXXYLEQPPOHZD3UTVTG3YIN3GLLVGBKBIOPKV").params("v", "20180922")
 				.when().get("https://api.foursquare.com/v2/venues/search");
 		
+	
+		
 		Venuedetails[] venuedetails;
 		String deserialize = venuedeserialize(resp.asString());
 		venuedetails=venueinformation(deserialize);
@@ -109,7 +111,7 @@ public class FoursquareAPIsearch {
 				.params("client_secret", "0KQDGCEKWB0YXXYLEQPPOHZD3UTVTG3YIN3GLLVGBKBIOPKV").params("v", "20180922")
 				.when().get("https://api.foursquare.com/v2/venues/"+id);
 		
-		System.out.println(resp.asString());
+	
 		String venues=venuedeserializestep2(resp.asString());
 		
 		InformationTT infovenue =	infostep2(venues);

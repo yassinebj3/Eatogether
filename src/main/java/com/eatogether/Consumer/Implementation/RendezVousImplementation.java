@@ -12,6 +12,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -143,8 +144,8 @@ public class RendezVousImplementation implements IRendezVous {
     }
 
     @Override
-    public ArrayList<String> GetListOfFriends(UtilisateurBean usercreate) {
-        ArrayList<String> friends = new ArrayList<String>();
+    public HashMap<String,String> GetListOfFriends(UtilisateurBean usercreate) {
+        HashMap<String,String> friends = new HashMap<String,String>();
         ArrayList<RendezVousBean> friendsBeans = new ArrayList<RendezVousBean>();
 
         entityManager.getTransaction().begin();
@@ -156,11 +157,11 @@ public class RendezVousImplementation implements IRendezVous {
         
         for (RendezVousBean p : friendsBeans)
         {
-            friends.add(iUsers.getUserByID(p.getIdvise().getId()).getAdressemail());
-            friends.add(iUsers.getUserByID(p.getIdsource().getId()).getAdressemail());
+            friends.put(iUsers.getUserByID(p.getIdvise().getId()).getAdressemail(),iUsers.getUserByID(p.getIdvise().getId()).getImage());
+            friends.put(iUsers.getUserByID(p.getIdsource().getId()).getAdressemail(),iUsers.getUserByID(p.getIdsource().getId()).getImage());
         }
-        List<String> listDistinct = friends.stream().distinct().collect(Collectors.toList());
-        return (ArrayList<String>) listDistinct;
+       
+        return friends;
     }
 
 

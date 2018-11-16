@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:if test="${sessionScope.login == null}">
+    <jsp:forward page = "login.jsp" />
+</c:if>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<c:if test="${sessionScope.login == null}">
-    <jsp:forward page = "login.jsp" />
-</c:if>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
    crossorigin=""/>
@@ -25,8 +25,12 @@
    
 </head>
 <body>
- <c:import url="header.jsp"></c:import>
- 
+<c:if test="${sessionScope.facebook == true}">
+    <c:import url="headerfb.jsp"></c:import>
+</c:if>
+ <c:if test="${sessionScope.facebook == null}">
+ 	<c:import url="header.jsp"></c:import>
+ </c:if>
 <section class="main-block">
       <div class="container">
         <div class="row">
@@ -128,37 +132,6 @@
     </section>
     <!--//END FEATURED PLACES -->
    
-   
-   
-    
-    <section class="testimonials text-center bg-light">
-      <div class="container">
-        <h2 class="mb-5">Ce que les gens disent...</h2>
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-              <img class="img-fluid rounded-circle mb-3" src="images/1.jpg" alt="">
-              <h5>Zakaria </h5>
-              <p class="font-weight-light mb-0">"Partagez vos repas"</p><br>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-              <img class="img-fluid rounded-circle mb-3" src="images/3.jpg" alt="">
-              <h5>Darine </h5>
-              <p class="font-weight-light mb-0">"Rencontrez des nouvelles personnes"</p><br>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-              <img class="img-fluid rounded-circle mb-3" src="images/3.jpg" alt="">
-              <h5>Yassine</h5>
-              <p class="font-weight-light mb-0">"Changez votre vie "</p><br>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
     <!--============================= ADD LISTING =============================-->
     <section class="main-block light-bg">
         <div class="container">

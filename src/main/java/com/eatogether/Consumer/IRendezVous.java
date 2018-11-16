@@ -5,6 +5,7 @@ import com.eatogether.Repository.RepositoryBean.UtilisateurBean;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 public interface IRendezVous {
 
@@ -22,7 +23,7 @@ public interface IRendezVous {
 
     public ArrayList<RendezVousBean> ConsulterRdvParRestaurant (String idRestaurant, UtilisateurBean user);
     public ArrayList<RendezVousBean> ConsulterTousRdvs (UtilisateurBean usercreate);
-    public  ArrayList<String> GetListOfFriends(UtilisateurBean usercreate);
+    public  HashMap<String, String> GetListOfFriends(UtilisateurBean usercreate);
 
 	public void AnnulerRdv(int idrdv);
 

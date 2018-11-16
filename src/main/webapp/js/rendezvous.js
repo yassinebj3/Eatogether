@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$("#row1").on("click","#match",function(){
-		 var id = $("#match").attr('value');
+		 var id = $(this).attr('value');
 	    $.ajax({
 	       url : 'RendezVousAddTargetServlet',
 	       type : 'POST', // Le type de la requête HTTP, ici devenu POST
@@ -27,7 +27,7 @@ $(document).ready(function(){
 	       dataType : 'json',
 	    	     success : function(data){
 	    	    	 $.each(data, function(i, obj) {
-	    	    		 $("#row1").append("<div class=\"col-md-4 featured-responsive\"><div class=\"featured-place-wrap\"><div class=\"featured-title-box\"><h6> Rejoindre son rendez-vous ! </h6><p><b>Nom :</b> "+obj.idLiker.nom+"</p><br><p><b>Prénom :</b>"+obj.idLiker.prenom+"</p><br><p><b>Date de naissance :</b>"+obj.idLiker.datenaissance+"<p><br><p><b>Email :</b>"+obj.idLiker.mail+"<p><br><p><b>Date de Rendez-vous :</b>"+obj.dateRdv+"</p><p><b>Description :</b>"+obj.note+"</p><div class=\"bottom-icons\"> <a href=\"#\" class=\"btn btn-danger\" role=\"Plus de détails\" id=\"btnid\" data-toggle=\"modal\" data-target=\"#exampleModal\" value=\""+obj.idRestraunt+"\" >Plus de détails</a><br><a class=\"btn btn-secondary\" id=\"match\" value=\""+obj.id+"\" role=\"Match\">Match</a></div></div></div></div></div>");
+	    	    		 $("#row1").append("<div class=\"col-md-4 featured-responsive\"><div class=\"featured-place-wrap\"><div class=\"featured-title-box\"><img src=\"images/rendez-vous.png\" class=\"img-fluid\" alt=\"Responsive image\" ></img><p><b>Nom :</b> "+obj.idLiker.nom+"</p><br><p><b>Prénom :</b>"+obj.idLiker.prenom+"</p><br><p><b>Date de naissance :</b>"+obj.idLiker.datenaissance+"<p><br><p><b>Email :</b>"+obj.idLiker.mail+"<p><br><p><b>Date de Rendez-vous :</b>"+obj.dateRdv+"</p><p><b>Description :</b>"+obj.note+"</p><div class=\"bottom-icons\"> <a href=\"#\" class=\"btn btn-danger\" role=\"Plus de détails\" id=\"btnid\" data-toggle=\"modal\" data-target=\"#exampleModal\" value=\""+obj.idRestraunt+"\" >Plus de détails</a><br><a class=\"btn btn-secondary\" id=\"match\" value=\""+obj.id+"\" role=\"Match\">Match</a></div></div></div></div></div>");
 
 	    	    	 }); 
 	    	    	 },
@@ -44,7 +44,7 @@ $(document).ready(function(){
 	});
 $(document).ready(function(){
 $("#row1").on("click","#btnid",function(){
-	 var id = $("#btnid").attr('value');
+	 var id = $(this).attr('value');
     $.ajax({
        url : 'DetailsServlet',
        type : 'POST', // Le type de la requête HTTP, ici devenu POST
@@ -100,6 +100,20 @@ $("#row1").on("click","#btnid",function(){
     });
 });
 });
+
+
+$(document).ready(function(){
+	$("#close").click(function(){
+	$(".modal-body").empty();
+	});
+	$("#close1").click(function(){
+		$(".modal-body").empty();
+		});
+	$("#close2").click(function(){
+		$(".modal-body").empty();
+		});
+});
+
 
     $(window).scroll(function() {
         // 100 = The point you would like to fade the nav in.

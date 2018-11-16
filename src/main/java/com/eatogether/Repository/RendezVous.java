@@ -8,7 +8,7 @@ public class RendezVous {
     private User idLiker;
     private User idTargetLiker;
     private String idRestraunt;
-    private Date dateRdv ;
+    private String dateRdv ;
     private String note;
     private boolean accepted; // 0 default value or not accepted else 1
     private boolean acceptUpdate; // default value or update not accepted , else 1
@@ -43,11 +43,11 @@ public class RendezVous {
     }
 
 
-    public Date getDateRdv() {
+    public String getDateRdv() {
         return dateRdv;
     }
 
-    public void setDateRdv(Date dateRdv) {
+    public void setDateRdv(String dateRdv) {
         this.dateRdv = dateRdv;
     }
 
@@ -91,7 +91,7 @@ public class RendezVous {
         this.id = id;
     }
 
-    public RendezVous(User idLiker, User idTargetLiker, String idRestraunt, Date dateRdv, String note, boolean accepted, boolean acceptUpdate, boolean annule) {
+    public RendezVous(User idLiker, User idTargetLiker, String idRestraunt, String dateRdv, String note, boolean accepted, boolean acceptUpdate, boolean annule) {
         this.idLiker = idLiker;
         this.idTargetLiker = idTargetLiker;
         this.idRestraunt = idRestraunt;

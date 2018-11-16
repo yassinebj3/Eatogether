@@ -67,7 +67,7 @@ $(document).ready(function(){
 	    	    	 }
 	    	   		 }
 	    	   		 catch(error){
-	    	   			 console.error(error);
+	    	   			 
 	    	   		 }
 	    	    	
 	    	    	
@@ -91,14 +91,14 @@ $(document).ready(function(){
 	    	      
 	    	         
 	    	         $.each(data.info, function(i, obj) {
-	    	         $("#annonces").append("<div class=\"customer-review_wrap\"><div class=\"customer-img\"><img src=\"images/customer-img1.jpg\" class=\"img-fluid\" alt=\"#\"><p>"+obj.idLiker.prenom+" "+obj.idLiker.nom+"</p></div><div class=\"customer-content-wrap\"><p class=\"customer-text\"><b><label> Pseudo : </label></b>"+obj.idLiker.pseudo+"</p><p class=\"customer-text\"><b><label> Date de naissance : </label></b>"+obj.idLiker.datenaissance+"</p><p class=\"customer-text\"><b><label> Email : </label></b>"+obj.idLiker.mail+"</p><p class=\"customer-text\"><b><label> Description : </label></b>"+obj.note+"</p><button type=\"button\" id=\"match\" class=\"btn btn-secondary\" value=\""+obj.id+"\">Match</button></div>");
+	    	         $("#row1").append("<div class=\"col-md-6 featured-responsive\"><div class=\"featured-place-wrap\"><div class=\"featured-title-box\"><img src=\"images/rendez-vous.png\" class=\"img-fluid\" alt=\"Responsive image\" ></img><p><b>Nom : </b>"+obj.idLiker.nom+"</p><br><p><b>Prénom : </b>"+obj.idLiker.prenom+"</p><br><p><b>Date de naissance : </b>"+obj.idLiker.datenaissance+"</p><br><p><b>Email : </b>"+obj.idLiker.mail+"<p><br><p><b>Date de Rendez-vous : </b>"+obj.dateRdv+"</p><p><b>Description : </b>"+obj.note+"</p><br><a class=\"btn btn-danger\" id=\"match\" value=\""+obj.id+"\" role=\"Match\">Match</a></div></div></div></div></div>");
 	    	         });	  
 	    	         if(data.info.length==0){
 	    	        	 $("#annonces").append("<div class=\"container\"> <div class=\"row justify-content-center\"><div class=\"col-md-5\"><div class=\"styled-heading\"><img class=\"img-responsive\" src=\"images/restaurant-date-calendar-page.png\"><br><br> <h4 class=\"service-heading\">Soyez le premier a Creer un Rendez-vous !</h4><p class=\"text-muted\">Eatogether offre a ses utilisateurs la possiblite de creer un rendez-vous et rencontrez des personnes interessantes</p><h3>Lancez un rendez-vous!</h3></div></div></div>");
 	    	       }
 	    	     },
 	    	       error : function(resultat, statut, erreur){
-
+	    	    	  
 	    	       },
 
 	    	       complete : function(resultat, statut){
@@ -112,7 +112,7 @@ $(document).ready(function(){
 
 $(document).ready(function(){
 	$("#annonces").on("click","#match",function(){
-		 var id = $("#match").attr('value');
+		 var id = $(this).attr('value');
 	    $.ajax({
 	       url : 'RendezVousAddTargetServlet',
 	       type : 'POST', // Le type de la requête HTTP, ici devenu POST
@@ -126,6 +126,7 @@ $(document).ready(function(){
 	    	       complete : function(resultat, statut){
 	    	       }
 	    });
+	    document.location.reload();
 	});
 });
 

@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:if test="${sessionScope.login == null}">
+    <jsp:forward page = "login.jsp" />
+</c:if>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<c:if test="${sessionScope.login == null}">
-    <jsp:forward page = "login.jsp" />
-</c:if>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
    crossorigin=""/>
@@ -33,14 +33,20 @@
     <script src="js/bootstrap.min.js"></script>
      <link rel="stylesheet" href="css/chat.css">
      <link rel="stylesheet" href="css/rendezvous.css">
- 	<script>var photo ='${sessionScope.picture_user}'</script>
+ 	<script>var photo ='${sessionScope.picture_user}'
+ 			var login ='${sessionScope.login}'</script>
 </head>
 <body>
 <script src="js/chat.js"></script>
 <div id="websocket">
 
 </div>
-<c:import url="header1.jsp"></c:import>    
+<c:if test="${sessionScope.facebook == true}">
+    <c:import url="headerfb1.jsp"></c:import>
+</c:if>
+ <c:if test="${sessionScope.facebook == null}">
+ 	<c:import url="header1.jsp"></c:import>
+ </c:if>    
 <div class="container">
   <div class="row justify-content-center">
             
@@ -77,7 +83,7 @@
           </div>
           <div class="type_msg">
             <div class="input_msg_write">
-              <input type="text" class="write_msg" placeholder="Type a message" id="messageText" name="messageText" />
+              <input type="text" class="write_msg" placeholder="Type a message" id="messageText" name="messageText" required />
               <button class="msg_send_btn" type="button" id="send" value="Send"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
             </div>
           </div>

@@ -1,13 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <c:if test="${sessionScope.login == null}">
     <jsp:forward page = "login.jsp" />
 </c:if>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#msg{
+
+color: red;
+
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
    crossorigin=""/>
@@ -28,10 +35,15 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/rendezvous.css">
-   
+   <script>var session ='${sessionScope.login}'</script>
 </head>
 <body>
- <c:import url="header1.jsp"></c:import>
+ <c:if test="${sessionScope.facebook == true}">
+    <c:import url="headerfb1.jsp"></c:import>
+</c:if>
+ <c:if test="${sessionScope.facebook == null}">
+ 	<c:import url="header1.jsp"></c:import>
+ </c:if>
     <section class="main-block">
       <div class="container">
         <div class="row">
@@ -105,7 +117,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" id="modal-body0">
    
       </div>
       <div class="modal-footer">
@@ -121,17 +133,17 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Détails sur le lieu </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close3">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form method="post" action="UpdateRendezVousServlet">
-      <div class="modal-body">
+      <form method="post" action="UpdateRendezVousServlet" onsubmit="return check()">
+      <div class="modal-body" id="modal-body1">
  	<div class="form-group" id="form-group1">
 	<label for="recipient-name" class="col-form-label">Date</label>
 	<input type="date" class="form-control" id="date" name="date">
 	 </div>
-	 
+	 <div id="erreur"></div>
 	  </div>
      <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close1">Close</button>
@@ -141,6 +153,34 @@
     </div>
   </div>
 </div>   
+
+<script >
+
+function check(){
+	var date_input = document.getElementById("date").value;
+	
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; 
+	var yyyy = today.getFullYear();
+	if(dd<10) { dd = '0'+dd } 
+	if(mm<10) { mm = '0'+mm } 
+
+	today = yyyy + '-' + mm + '-' + dd;	
+	
+	if (today > date_input ) {
+		$("#erreur").empty();
+		$("#erreur").append("<div id=\"msg\"><b>Veuillez choisir une date valide !</b></div>");	
+		return false ;
+	}
+	else{
+		return true ;
+	}		 
+}
+</script>
+
+
+
  <c:import url="footer.jsp"></c:import>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/popper.min.js"></script>

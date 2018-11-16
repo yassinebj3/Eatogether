@@ -162,11 +162,13 @@ color: white;
                                         <button type="submit" class="btn-form">Connexion<i class="pe-7s-angle-right"></i></button>
                                   <div id="profile">
 
-    <div  class="fb-login-button" scope="public_profile,email,user_birthday,user_gender" data-onlogin="test();" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div> 
+    <div  class="fb-login-button" scope="public_profile,email" data-onlogin="test();" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-use-continue-as="true"></div> 
 
 			</div>  
-			
-			  
+										<div style="color:red !important" >
+      							 		<b><c:out value="${err}"/></b>
+     									 </div>
+			  							<a href="privacy.jsp">Application Privacy Statement</a>
                                         </div></div>
                                          </form><br><br><br>
                                          <img class="img-responsive" src="images/foursquare1.png"><br>

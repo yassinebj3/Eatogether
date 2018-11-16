@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.jasypt.util.password.StrongPasswordEncryptor;
+
 import com.eatogether.Consumer.IUsers;
 import com.eatogether.Consumer.Implementation.UsersImplementation;
 import com.eatogether.Consumer.Transformation.IUserTransformation;
@@ -28,7 +30,7 @@ public void doGet( HttpServletRequest request, HttpServletResponse response ) th
     
 		public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 			HttpSession session = request.getSession();
-		
+			
 			String mp = request.getParameter("password");
 			String mail = request.getParameter("email");
 			String name = request.getParameter("nom");
@@ -43,11 +45,13 @@ public void doGet( HttpServletRequest request, HttpServletResponse response ) th
 				gender="femme";
 			}
 			
+			StrongPasswordEncryptor passwordEncryptor = new StrongPasswordEncryptor();
+			String encryptedPassword = passwordEncryptor.encryptPassword(mp);
 			User user = new User();
 			
-			user.setMotdepasse(mp);
+			user.setMotdepasse(encryptedPassword);
 			user.setMail(mail);
-			user.setImage(null);
+			user.setImage("images/profile-user (1).png");
 			user.setDatenaissance(date_naiss);
 			user.setNom(name);
 			user.setPrenom(prename);

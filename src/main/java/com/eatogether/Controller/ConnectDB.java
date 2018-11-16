@@ -7,7 +7,7 @@ public class ConnectDB {
 	
 	static final String DB_URL = "jdbc:mysql://localhost/Eatogether?autoReconnect=true&useSSL=false&useTimezone=true&serverTimezone=UTC";
 	static final String USER = "root";
-	static final String PASS = "root";
+	static final String PASS = "iXyZcVAY8apM";
 	   
 	public Connection getConnexion() throws Exception {
 		Class.forName("com.mysql.jdbc.Driver");

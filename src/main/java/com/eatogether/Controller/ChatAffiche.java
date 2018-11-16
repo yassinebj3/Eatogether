@@ -31,7 +31,10 @@ public class ChatAffiche extends HttpServlet {
 		String json ="";
 		Chat chat = new Chat();
 		
+		
+		
 		try {
+			
 			chat.setNumber(String.valueOf(chat.numberofmsg(source, destination)));
 			listechatSrc=chat.getdicussionSrc(source,destination);
 			listechatDes=chat.getdicussionSrc(destination,source);

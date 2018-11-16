@@ -28,7 +28,7 @@ public class RendezVousBean {
     private String idrestaurant;
 
     @Column(name = "dateTodate")
-    private Date daterdv;
+    private String daterdv;
 
     @Column(name = "note")
     private String note;
@@ -77,11 +77,11 @@ public class RendezVousBean {
         this.idrestaurant = idrestaurant;
     }
 
-    public Date getDaterdv() {
+    public String getDaterdv() {
         return daterdv;
     }
 
-    public void setDaterdv(Date daterdv) {
+    public void setDaterdv(String daterdv) {
         this.daterdv = daterdv;
     }
 
@@ -117,7 +117,7 @@ public class RendezVousBean {
         this.annule = annule;
     }
 
-    public RendezVousBean(UtilisateurBean idsource, UtilisateurBean idvise, String idrestaurant, Date daterdv, String note, boolean accepted, boolean acceptUpdate, boolean annule) {
+    public RendezVousBean(UtilisateurBean idsource, UtilisateurBean idvise, String idrestaurant, String daterdv, String note, boolean accepted, boolean acceptUpdate, boolean annule) {
         this.idsource = idsource;
         this.idvise = idvise;
         this.idrestaurant = idrestaurant;

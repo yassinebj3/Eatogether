@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:if test="${sessionScope.login == null}">
+    <jsp:forward page = "login.jsp" />
+</c:if>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<c:if test="${sessionScope.login == null}">
-    <jsp:forward page = "login.jsp" />
-</c:if>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
    crossorigin=""/>
@@ -26,7 +26,12 @@
    
 </head>
 <body>
-<c:import url="header1.jsp"></c:import>
+<c:if test="${sessionScope.facebook == true}">
+    <c:import url="headerfb1.jsp"></c:import>
+</c:if>
+ <c:if test="${sessionScope.facebook == null}">
+ 	<c:import url="header1.jsp"></c:import>
+ </c:if>
     <section class="main-block light-bg">
         <div class="container">
               <div class="row justify-content-center">
@@ -63,7 +68,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Détails sur le lieu </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -71,7 +76,7 @@
    
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" id="close1" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

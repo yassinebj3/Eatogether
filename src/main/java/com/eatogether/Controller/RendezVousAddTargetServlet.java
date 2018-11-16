@@ -22,7 +22,11 @@ public class RendezVousAddTargetServlet extends HttpServlet {
         HttpSession session = request.getSession();
         String mail = session.getAttribute("login").toString();
         int idrdv = Integer.parseInt(request.getParameter("Idrdv"));
+        try {
         iRendezVousBusiness.AddTargetToRdv(mail,idrdv);
+        }catch(Exception e) {
+        	
+        }
         this.getServletContext()
                 .getRequestDispatcher("/rendezvous.jsp")
                 .forward(request, response);

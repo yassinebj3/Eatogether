@@ -26,7 +26,6 @@ public class TransformationUser implements IUserTransformation {
     @Override
     public User fromUserBeanToUser(UtilisateurBean user) {
         User userBean= new User();
-      //  System.out.println("---------------"+user.getNom());
         userBean.setNom(user.getNom());
         userBean.setPrenom(user.getPrenom());
         userBean.setPseudo(user.getPseudo());

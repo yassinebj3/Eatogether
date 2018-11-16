@@ -63,21 +63,10 @@ public void handleMessage(String message, Session userSession) throws IOExceptio
 				 }  	
 				 	exist = true ; 
 	                peer.getBasicRemote().sendText(buildJsonData(username,message));
-	                
-			 }}
-	
-		if(exist1==false) {
-			Chat chat = new Chat();
-			try {
-				if(chat.numberofmsg(username, userSession.getUserProperties().get("destination").toString())<=3) {
-				chat.inserdiscussion(username, userSession.getUserProperties().get("destination").toString(), message);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}}
-		
+			 }}		
 			if(exist==false) {
 				Chat chat = new Chat();
+				exist1=true;
 				try {
 					if(chat.numberofmsg(username, userSession.getUserProperties().get("destination").toString())<=3) {
 				chat.inserdiscussion(username, userSession.getUserProperties().get("destination").toString(), message);
@@ -86,6 +75,17 @@ public void handleMessage(String message, Session userSession) throws IOExceptio
 					e.printStackTrace();
 				}
 			}
+			
+			if(exist1==false) {
+				Chat chat = new Chat();
+				try {
+					exist=true;
+					if(chat.numberofmsg(username, userSession.getUserProperties().get("destination").toString())<=3) {
+					chat.inserdiscussion(username, userSession.getUserProperties().get("destination").toString(), message);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}}
 			
 		}
 }

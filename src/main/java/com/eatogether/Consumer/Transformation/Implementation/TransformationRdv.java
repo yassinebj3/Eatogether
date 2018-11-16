@@ -24,7 +24,7 @@ public class TransformationRdv implements IRendezVousTransformation {
         result.setIdsource(iUserTransformation.fromUserToUserBean(rdv.getIdLiker()));
         if(rdv.getIdTargetLiker()!=null)
         result.setIdvise(iUserTransformation.fromUserToUserBean(rdv.getIdTargetLiker()));
-        result.setDaterdv(new Timestamp(rdv.getDateRdv().getTime()));
+        result.setDaterdv(rdv.getDateRdv());
         result.setIdrestaurant(rdv.getIdRestraunt());
         result.setNote(rdv.getNote());
 
