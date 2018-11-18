@@ -37,13 +37,8 @@ public void doGet( HttpServletRequest request, HttpServletResponse response ) th
 			String prename = request.getParameter("prenom");
 			String date_naiss=request.getParameter("date_naiss");
 			String pseudo = request.getParameter("pseudo");
-	
-			String gender;
-			if(request.getParameter("gender").equals("homme") ) {
-				gender="homme";
-			}else {
-				gender="femme";
-			}
+			String gender=request.getParameter("gender");
+			
 			
 			StrongPasswordEncryptor passwordEncryptor = new StrongPasswordEncryptor();
 			String encryptedPassword = passwordEncryptor.encryptPassword(mp);

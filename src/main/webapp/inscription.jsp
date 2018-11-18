@@ -115,8 +115,8 @@ function check(){
       								<div class="row d-flex justify-content-center">
                             <div class="col-md-10">
                      
-                                    	<input id="homme" class="form-check-input" name="gender" class="btn-group1" type="radio" checked /><label>&nbsp;Homme&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> 
-    								    <input id="femme" class="form-check-input" name="gender" class="btn-group1" type="radio" /><label>&nbsp;Femme&nbsp;</label><br/>
+                                    	<input id="homme" class="form-check-input" name="gender" class="btn-group1" type="radio" value="homme" checked /><label>&nbsp;Homme&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> 
+    								    <input id="femme" class="form-check-input" name="gender" class="btn-group1" type="radio" value="femme" /><label>&nbsp;Femme&nbsp;</label><br/>
     			
     							</div>
     							</div><br>
