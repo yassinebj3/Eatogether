@@ -88,7 +88,7 @@
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <input type="text" id="place" name="place" placeholder="Lieu" class="btn-group1" required>
                                         <input type="text" id="query" name="query" placeholder="Mot-clé" class="btn-group2"required>
-                                        <input type="number" id="rayon" name="rayon" placeholder="Rayon" class="btn-group2"required min="10000" max="100000">
+                                        <input type="number" id="rayon" name="rayon" placeholder="Rayon en KM" class="btn-group2"required min="10" max="100">
                                         <input type="number" id="limit" name="limit" placeholder="Résultats" class="btn-group1"required min="1" max="10">
                                         <button type="submit" class="btn-form"><span class="icon-magnifier search-icon"></span>Recherche<i class="pe-7s-angle-right"></i></button>
                                     </div>
